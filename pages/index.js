@@ -11,6 +11,7 @@ import axios from "axios";
 import NavBar from "../components/NavBarEs/NavBarEs";
 import CasosEstudio from "../components/CasosEstudio";
 import CasosExitosos from "../components/CasosExitosos";
+import { Cal } from "@calcom/embed-react";
 
 import About from "../components/About";
 
@@ -336,9 +337,12 @@ export default function Home() {
           {/* Sección “Casos de Estudio” (si ya tienes) */}
           <CasosEstudio />
 
-          {/* Calendly, si lo requieres */}
-          <div className="w-full">
-            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min" />
+          <div className="w-full max-w-5xl mx-auto">
+            <iframe
+              src="https://cal.com/hector-velasquez-dxpjyd/growthsuitereunion?embed=true"
+              className="w-full h-[900px] border-0"
+              allow="camera; microphone; fullscreen; geolocation"
+            />
           </div>
 
           {/* About (adaptado a tu info de GrowthSuite) */}
