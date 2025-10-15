@@ -78,7 +78,13 @@ function Contacto() {
             <strong> growthsuite</strong> puede ayudarte a crecer con soluciones
             tecnológicas a la medida!
           </p>
-          <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min" />
+          <div className="w-full max-w-5xl mx-auto">
+            <iframe
+              src="https://cal.com/hector-velasquez-dxpjyd/growthsuitereunion?embed=true"
+              className="w-full h-[900px] border-0"
+              allow="camera; microphone; fullscreen; geolocation"
+            />
+          </div>
         </div>
       </div>
     </>
