@@ -1,19 +1,11 @@
 import Link from "next/link";
 import { useState } from "react";
+import { growthsuiteModules } from "../../data/growthsuiteModules";
 
-const productLinks = [
-  { label: "Central de pedidos", href: "#central-de-pedidos" },
-  { label: "Orquestador de plataformas", href: "#orquestador" },
-  { label: "Punto de venta", href: "#punto-de-venta" },
-  { label: "Tienda en línea", href: "#tienda-en-linea" },
-  { label: "Rewards", href: "#rewards" },
-  { label: "Bots", href: "#bots" },
-  { label: "Kiosko", href: "#kiosko" },
-  { label: "Comandera", href: "#comandera" },
-  { label: "Pantalla de pedidos", href: "#pantalla-de-pedidos" },
-  { label: "Factura inteligente", href: "#factura-inteligente" },
-  { label: "Delivery Hub", href: "#delivery-hub" },
-];
+const productLinks = growthsuiteModules.map((module) => ({
+  label: module.title,
+  href: `#${module.id}`,
+}));
 
 const restaurantLinks = [
   { label: "Fast casual", href: "/contacto" },
