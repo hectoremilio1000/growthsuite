@@ -19,11 +19,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#007BFF", // Azul GrowthSuite
-        secondary: "#FFD700", // Dorado GrowthSuite
+        primary: "#1D85F4", // Azul GrowthSuite (logo)
+        secondary: "#EDD8A1", // Dorado GrowthSuite (logo)
       },
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
       },
       // Opcional si necesitas más personalización, por ejemplo:
       // gridTemplateColumns: {

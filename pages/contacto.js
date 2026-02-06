@@ -1,94 +1,146 @@
-import React from "react";
-import NavBar from "../components/NavBarBlack/NavBarEs";
-import { InlineWidget } from "react-calendly";
-import { Button } from "antd";
+import Head from "next/head";
+import { useState } from "react";
+import NavBar from "../components/foodbot/NavBar";
 
-function Contacto() {
+const locations = [
+  { title: "México", line: "Ciudad de México" },
+  { title: "India", line: "Bengaluru" },
+  { title: "Canadá", line: "Toronto" },
+];
+
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  "https://impulsorestauranteromercado-production.up.railway.app";
+
+export default function Contacto() {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus(null);
+
+    const form = new FormData(event.currentTarget);
+    const fullName = String(form.get("name") || "").trim();
+    const email = String(form.get("email") || "").trim();
+    const whatsapp = String(form.get("whatsapp") || "").trim();
+
+    if (!fullName || !email || !whatsapp) {
+      setStatus({ type: "error", message: "Completa todos los campos." });
+      return;
+    }
+
+    const [first_name, ...lastParts] = fullName.split(" ");
+    const last_name = lastParts.join(" ");
+
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_URL}/api/prospects-growthsuite`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name,
+          last_name,
+          email,
+          whatsapp,
+          status: "nuevo",
+          origin: "growthsuite-foodbot",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al enviar");
+      }
+
+      setStatus({
+        type: "success",
+        message: "¡Gracias! Te contactaremos pronto.",
+      });
+      event.currentTarget.reset();
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "No pudimos enviar tus datos. Intenta de nuevo.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <>
+    <div>
+      <Head>
+        <title>Contacto | Growthsuite</title>
+      </Head>
+
       <NavBar />
-      <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-36 md:pt-36">
-        {/* Encabezado principal */}
-        <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 text-center">
-          ¡Hablemos de tus ideas de software!
-        </h1>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl text-center mb-8">
-          En <strong>GROWTHSUITE</strong> nos apasiona convertir tus proyectos
-          en grandes realidades digitales. Ya sea que busques desarrollar
-          aplicaciones web, integrar sistemas de inteligencia artificial o
-          mejorar tus procesos con tecnología de vanguardia, estamos aquí para
-          ayudarte.
-        </p>
 
-        {/* Datos de ubicación */}
-        <div className="text-center max-w-2xl mb-8">
-          <p className="text-lg md:text-xl text-gray-700 mb-2">
-            Visítanos en nuestra oficina ubicada en:
+      <section className="fb-section">
+        <div className="fb-container">
+          <span className="fb-pill">Contacto</span>
+          <h1 className="heading-font mt-4 text-4xl font-semibold">
+            Agenda una demo con nuestro equipo
+          </h1>
+          <p className="mt-3 text-base text-slate-600">
+            Cuéntanos sobre tu operación y te mostraremos cómo Growthsuite puede
+            ayudarte a vender más y operar con claridad.
           </p>
-          <p className="text-md md:text-lg text-gray-600">
-            <strong>AV. BAJA CALIFORNIA #275,</strong>
-            <br />
-            Colonia Hipódromo Condesa, C.P. 06170
-          </p>
-        </div>
 
-        {/* Botón de WhatsApp */}
-        <div className="mb-8 text-center">
-          <p className="text-lg md:text-xl text-gray-700 font-semibold mb-4">
-            ¿Prefieres hablarnos o enviarnos un WhatsApp?
-          </p>
-          <Button
-            type="primary"
-            shape="round"
-            size="large"
-            className="bg-green-500 hover:bg-green-600 border-none"
-          >
-            <a
-              href="https://wa.me/525531491808"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white text-md md:text-lg"
-            >
-              Contáctanos al +52 55 3149 1808
-            </a>
-          </Button>
-        </div>
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <form className="fb-form" onSubmit={handleSubmit}>
+              <input
+                className="fb-input"
+                type="text"
+                name="name"
+                placeholder="Nombre y apellido"
+              />
+              <input
+                className="fb-input"
+                type="email"
+                name="email"
+                placeholder="Correo electrónico"
+              />
+              <input
+                className="fb-input"
+                type="text"
+                name="whatsapp"
+                placeholder="WhatsApp"
+              />
+              <button type="submit" className="fb-button" disabled={loading}>
+                {loading ? "Enviando..." : "Enviar"}
+              </button>
+              {status && (
+                <p
+                  className={`text-sm ${
+                    status.type === "success" ? "text-green-600" : "text-red-500"
+                  }`}
+                >
+                  {status.message}
+                </p>
+              )}
+            </form>
 
-        {/* Mapa de Google Maps */}
-        <div className="w-full max-w-4xl mb-12">
-          <iframe
-            title="Ubicación GrowthSuite"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0430761299645!2d-99.17036248509837!3d19.406244046355726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff424bc50cbd%3A0x0!2sAv%20Baja%20California%20275%2C%20Hip%C3%B3dromo%2C%2006170%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1684246078984!5m2!1ses-419!2smx"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-
-        {/* Calendly para agendar citas */}
-        <div className="w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-            Agenda una reunión con nosotros
-          </h2>
-          <p className="text-md md:text-lg text-gray-600 text-center mb-4">
-            ¡Conversemos sobre las necesidades de tu negocio y cómo
-            <strong> growthsuite</strong> puede ayudarte a crecer con soluciones
-            tecnológicas a la medida!
-          </p>
-          <div className="w-full max-w-5xl mx-auto">
-            <iframe
-              src="https://cal.com/hector-velasquez-dxpjyd/growthsuitereunion?embed=true"
-              className="w-full h-[900px] border-0"
-              allow="camera; microphone; fullscreen; geolocation"
-            />
+            <div className="fb-feature-card">
+              <h2 className="heading-font text-2xl">¿Prefieres hablar ya?</h2>
+              <p className="mt-3 text-slate-600">
+                Escríbenos y armamos una propuesta en menos de 24 horas.
+              </p>
+              <div className="mt-6 space-y-3">
+                {locations.map((location) => (
+                  <div key={location.title}>
+                    <p className="font-semibold">{location.title}</p>
+                    <p className="text-sm text-slate-500">{location.line}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6">
+                <p className="text-sm text-slate-500">Email</p>
+                <p className="font-medium">clientes@growthsuite.com.mx</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   );
 }
-
-export default Contacto;
