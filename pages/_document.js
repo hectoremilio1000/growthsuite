@@ -5,10 +5,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap"
-          rel="stylesheet"
-        />
         <Script
           id="gtm-script"
           strategy="afterInteractive"

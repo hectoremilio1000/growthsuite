@@ -1,5 +1,6 @@
 import "../styles/main.css";
 import "../styles/global.css";
+import "../styles/foodbot.css";
 import "../components/Navbar/navBar.css";
 import "../components/NavbarWhite/navBarWhite.css";
 import LayoutFinal from "../components/layout";
