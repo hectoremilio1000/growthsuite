@@ -20,7 +20,8 @@ export default function Contacto() {
     event.preventDefault();
     setStatus(null);
 
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const fullName = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
     const whatsapp = String(form.get("whatsapp") || "").trim();
@@ -48,19 +49,23 @@ export default function Contacto() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Error al enviar");
+      const payload = await response
+        .json()
+        .catch(() => ({ status: "error", message: "Respuesta inválida del servidor." }));
+
+      if (!response.ok || payload?.status === "error") {
+        throw new Error(payload?.message || "Error al enviar");
       }
 
       setStatus({
         type: "success",
         message: "¡Gracias! Te contactaremos pronto.",
       });
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       setStatus({
         type: "error",
-        message: "No pudimos enviar tus datos. Intenta de nuevo.",
+        message: error?.message || "No pudimos enviar tus datos. Intenta de nuevo.",
       });
     } finally {
       setLoading(false);
