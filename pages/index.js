@@ -3,12 +3,6 @@ import Link from "next/link";
 import NavBar from "../components/foodbot/NavBar";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
-const heroStats = [
-  { label: "Integraciones (WhatsApp, POS, etc.)", value: "10+" },
-  { label: "En tiempo real Pedidos y operación", value: "24/7" },
-  { label: "Para empezar a operar", value: "< 1 min" },
-];
-
 const logoCloud = [
   {
     src: "/logos/bar-bunny-universidad-logo-300x300.jpg",
@@ -67,7 +61,7 @@ export default function Home() {
               Por primera vez, controla tu restaurante desde WhatsApp
             </h1>
             <p className="mt-4 text-lg text-slate-600">
-              Un punto de venta único conectado a tu WhatsApp para operar
+              Un Punto de Venta único conectado a tu WhatsApp para operar
               pedidos, cancelaciones e inventarios sin complicarte
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -77,14 +71,6 @@ export default function Home() {
               {/* <Link href="#central-de-pedidos" className="fb-button-outline">
                 Ver módulos
               </Link> */}
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {heroStats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-semibold">{stat.value}</p>
-                  <p className="text-sm text-slate-500">{stat.label}</p>
-                </div>
-              ))}
             </div>
           </div>
           <div className="fb-hero-visual">
@@ -226,8 +212,8 @@ export default function Home() {
             </p>
 
             <h2 className="heading-font mt-2 text-3xl md:text-4xl">
-              Controla tu restaurante desde WhatsApp, con un POS que se adapta a
-              tu operación.
+              Controla tu restaurante desde WhatsApp, con un Punto de Venta
+              (POS) que se adapta a tu operación.
             </h2>
 
             <p className="mt-4 text-base text-slate-600">

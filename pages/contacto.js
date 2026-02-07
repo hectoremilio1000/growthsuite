@@ -123,7 +123,8 @@ export default function Contacto() {
             <div className="fb-feature-card">
               <h2 className="heading-font text-2xl">¿Prefieres hablar ya?</h2>
               <p className="mt-3 text-slate-600">
-                Escríbenos y armamos una propuesta en menos de 24 horas.
+                Escríbenos y te contactamos en minutos. Para nosotros tu
+                operación es prioridad.
               </p>
               <div className="mt-6 space-y-3">
                 {locations.map((location) => (

@@ -11,14 +11,15 @@ const features = [
       "Aggregate delivery orders in one dashboard and close the day with clean reconciliations.",
     chips: ["Aggregators", "Reconciliation", "Operations"],
     visualImage: "/imagen4.png",
-    visualAlt: "Growthsuite syncs orders across POS, kitchen, and WhatsApp",
+    visualAlt:
+      "Growthsuite syncs orders across point of sale (POS), kitchen, and WhatsApp",
   },
   {
     id: "pos",
     title: "Point of sale",
     kicker: "The core of your restaurant",
     description:
-      "Cloud POS with tables, reporting, and customer profiles built in.",
+      "Cloud point of sale (POS) with tables, reporting, and customer profiles built in.",
     chips: ["Tables", "Reports", "Customers"],
   },
   {

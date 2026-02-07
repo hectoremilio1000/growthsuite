@@ -89,6 +89,57 @@ h3,
   background: #ffffff;
 }
 
+@media (max-width: 640px) {
+  .fb-hero-grid {
+    padding: 2.75rem 0 2.5rem;
+    gap: 2rem;
+  }
+
+  .fb-hero-visual-image {
+    max-width: 100%;
+  }
+
+  .fb-button,
+  .fb-button-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fb-logo-panel {
+    padding: 1.2rem;
+  }
+
+  .fb-logo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .fb-proof-badge {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    row-gap: 0.4rem;
+  }
+
+  .fb-proof-badge img {
+    height: 34px;
+  }
+
+  .fb-section {
+    padding: 3.2rem 0;
+  }
+
+  .fb-cta {
+    padding: 2.4rem 1.5rem;
+  }
+
+  .fb-nav-inner {
+    padding: 0.85rem 0;
+  }
+}
+
 .fb-hero-card .card-row {
   display: flex;
   align-items: center;
@@ -478,6 +529,41 @@ h3,
   color: #ffffff;
 }
 
+@media (max-width: 640px) {
+  .fb-footer {
+    padding: 2.25rem 0;
+  }
+
+  .fb-footer-grid {
+    gap: 1.5rem;
+  }
+
+  .fb-footer-brand img {
+    height: 32px;
+  }
+
+  .fb-footer-brand p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .fb-footer h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .fb-footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    gap: 0.6rem;
+  }
+
+  .fb-footer-links {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+}
+
 
 .fb-form {
   display: grid;
@@ -534,9 +620,18 @@ h3,
   position: relative;
 }
 
+.fb-nav-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 12px;
+}
+
 .fb-nav-panel {
   position: absolute;
-  top: 2.2rem;
+  top: calc(100% + 8px);
   left: 0;
   min-width: 240px;
   background: #fff;
@@ -577,6 +672,88 @@ h3,
   display: none;
 }
 
+.fb-mobile-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.fb-mobile-group:first-of-type {
+  border-top: none;
+  padding-top: 0.1rem;
+}
+
+.fb-mobile-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.fb-mobile-accordion-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.fb-mobile-accordion-toggle.is-open {
+  color: var(--brand-ink);
+}
+
+.fb-mobile-accordion-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.fb-mobile-accordion-panel {
+  display: grid;
+  gap: 0.2rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.fb-mobile-accordion-panel.is-open {
+  max-height: 800px;
+}
+
+.fb-mobile-link {
+  display: block;
+  padding: 0.45rem 0;
+  font-size: 0.95rem;
+  color: var(--brand-ink);
+}
+
+.fb-mobile-link:hover {
+  color: var(--brand-blue);
+}
+
+.fb-mobile-link--sub {
+  font-size: 0.9rem;
+  padding-left: 0.25rem;
+}
+
+.fb-mobile-cta {
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 900px) {
   .fb-nav-menu {
     display: none;
@@ -596,6 +773,11 @@ h3,
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem 0 1.5rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   .fb-mobile-menu a {

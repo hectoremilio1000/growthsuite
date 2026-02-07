@@ -1,12 +1,23 @@
 export const growthsuiteModules = [
   {
     id: "punto-de-venta",
-    title: "Punto de venta",
+    title: "Punto de Venta",
     kicker: "¡El corazón de la gestión de tu restaurante 💚 !",
     description:
-      "Nuestro punto de venta cloudbase, no solo tiene todas las funcionalidades que tu restaurante necesita, también esta diseñado para que puedas identificar a cada uno de tus clientes.",
+      "Nuestro Punto de Venta cloudbase, no solo tiene todas las funcionalidades que tu restaurante necesita, también esta diseñado para que puedas identificar a cada uno de tus clientes.",
     chips: ["Menús", "Precios", "Disponibilidad"],
     visualImage: "/imagen_3.png",
+  },
+  {
+    id: "control-asistente-whatsapp",
+    title: "Control + Asistente por WhatsApp",
+    kicker: "Gestiona y decide más rápido desde un solo chat",
+    description:
+      "Controla inventarios, cancelaciones y reportes en tiempo real, mientras tu asistente te ayuda con marketing, RRHH y respuestas para clientes desde WhatsApp.",
+    chips: ["Inventarios", "Cancelaciones", "Asistente IA"],
+    visualImage: "/cliente_whatsapp.png",
+    visualAlt:
+      "Control y asistente por WhatsApp para la operación diaria del restaurante",
   },
   {
     id: "central-de-pedidos",
@@ -15,12 +26,13 @@ export const growthsuiteModules = [
     description:
       "Agrupa los pedidos de delivery en una interfaz única y concilia ventas con menos fricción al cierre de caja.",
     chips: ["Agregadores", "Consolidación", "Cortes diarios"],
-    visualImage: "/imagen4.png",
-    visualAlt: "Growthsuite sincroniza pedidos en POS, cocina y WhatsApp",
+    visualImage: "/imagen11.png",
+    visualAlt:
+      "Growthsuite sincroniza pedidos en Punto de Venta (POS), cocina y WhatsApp",
   },
   {
-    id: "pantalla-de-pedidos",
-    title: "Pantalla de pedidos",
+    id: "Monitor-de-comandas",
+    title: "Monitor de comandas",
     kicker: "Adiós papel, hola velocidad",
     description:
       "Recibe comandas en tiempo real en cocina o barra. Prioriza por tiempo, reduce errores y acelera la salida de platillos y bebidas.",
@@ -28,22 +40,13 @@ export const growthsuiteModules = [
     visualImage: "/imagen7.png",
   },
   {
-    id: "tableta-de-pedidos",
-    title: "Tableta de pedidos",
+    id: "tableta-de-órdenes",
+    title: "Tableta de órdenes",
     kicker: "Pedidos claros, equipos ágiles",
     description:
       "Los meseros capturan órdenes desde una tableta táctil. Envía a cocina al instante, reduce errores y acelera el servicio.",
     chips: ["Comandero", "Meseros", "Envío a cocina"],
     visualImage: "/imagen8.png",
-  },
-  {
-    id: "control-whatsapp",
-    title: "Control por WhatsApp",
-    kicker: "Gestiona tu operación en segundos",
-    description:
-      "Desde tu WhatsApp controlas inventarios, cancelas cuentas y consultas todo en tiempo real sin abrir el POS.",
-    chips: ["Inventarios", "Cancelaciones", "Tiempo real"],
-    visualImage: "/imagen9.png",
   },
   {
     id: "tienda-en-linea",
