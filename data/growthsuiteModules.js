@@ -36,7 +36,7 @@ export const growthsuiteModules = [
     kicker: "Adiós papel, hola velocidad",
     description:
       "Recibe comandas en tiempo real en cocina o barra. Prioriza por tiempo, reduce errores y acelera la salida de platillos y bebidas.",
-    chips: ["KDS", "Cocina/Barra", "Tiempo real"],
+    chips: ["Monitor", "Cocina/Barra", "Tiempo real"],
     visualImage: "/imagen7.png",
   },
   {

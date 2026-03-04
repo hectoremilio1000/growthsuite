@@ -6,6 +6,10 @@ const locations = [
     lines: ["Ciudad de México"],
   },
   {
+    title: "Perú",
+    lines: ["Lima"],
+  },
+  {
     title: "India",
     lines: ["Bengaluru"],
   },
@@ -19,7 +23,7 @@ export default function FoodbotFooter() {
   return (
     <footer className="fb-footer">
       <div className="fb-container">
-        <div className="fb-footer-grid grid gap-8 md:grid-cols-4">
+        <div className="fb-footer-grid grid gap-8 md:grid-cols-5">
           <div className="fb-footer-brand">
             <img src="/brand/logo.png" alt="Growthsuite" className="h-9" />
           </div>

@@ -38,6 +38,41 @@ const logoCloud = [
     size: "lg",
     scale: 1.15,
   },
+  {
+    src: "/logos/logo_bambuu.jpeg",
+    alt: "Bambuu",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/fogo-de-chao.svg",
+    alt: "Fogo de Chão",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/rubaiyat.svg",
+    alt: "Rubaiyat",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/cais-do-oriente.svg",
+    alt: "Cais do Oriente",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/nk-hotel.svg",
+    alt: "NKO Restaurante",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+  },
 ];
 
 export default function Home() {
@@ -85,37 +120,17 @@ export default function Home() {
 
       <section className="fb-section fb-logo-section">
         <div className="fb-container">
-          <p className="text-sm font-semibold text-blue-600">
-            Ellos ya confían en nosotros
-          </p>
-          <div className="mt-4 fb-proof-badge-wrap fb-proof-badge-wrap--wide">
-            <span className="fb-proof-badge">
-              <span className="fb-proof-badge__icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 2.5l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.9l-5.4 2.86 1.03-6.01-4.36-4.25 6.03-.88L12 2.5z" />
-                </svg>
-              </span>
-              <img src="/meta.png" alt="Meta" />
-              <span>Startup incubada en el programa Potencia de Meta.</span>
-            </span>
-          </div>
           <div className="fb-logo-header">
             <h2 className="heading-font text-2xl md:text-3xl text-slate-900">
               Restaurantes que operan con Growthsuite
             </h2>
             <a
               href="https://wa.me/525531491808?text=Hola%20quiero%20una%20demo%20de%20Growthsuite"
-              className="fb-button-outline"
+              className="fb-button fb-button-whatsapp self-start md:self-center"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Conversemos
+              Conversemos por WhatsApp
             </a>
           </div>
           <div className="fb-logo-panel">
@@ -205,6 +220,24 @@ export default function Home() {
       ))}
 
       <section className="fb-section">
+        <div className="mb-6 fb-proof-badge-wrap fb-proof-badge-wrap--wide">
+          <span className="fb-proof-badge">
+            <span className="fb-proof-badge__icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M12 2.5l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.9l-5.4 2.86 1.03-6.01-4.36-4.25 6.03-.88L12 2.5z" />
+              </svg>
+            </span>
+            <img src="/meta.png" alt="Meta" />
+            <span>Startup acelerada en el programa Potencia de Meta.</span>
+          </span>
+        </div>
+
         <div className="fb-container">
           <div className="fb-cta">
             <p className="text-sm font-semibold text-slate-500">

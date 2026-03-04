@@ -4,6 +4,7 @@ import NavBar from "../components/foodbot/NavBar";
 
 const locations = [
   { title: "México", line: "Ciudad de México" },
+  { title: "Perú", line: "Lima" },
   { title: "India", line: "Bengaluru" },
   { title: "Canadá", line: "Toronto" },
 ];
