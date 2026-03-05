@@ -234,7 +234,7 @@ export default function Home() {
               </svg>
             </span>
             <img src="/meta.png" alt="Meta" />
-            <span>Startup acelerada en el programa Potencia de Meta.</span>
+            <span>Startup acelerada en el programa PotencIA de Meta.</span>
           </span>
         </div>
 
