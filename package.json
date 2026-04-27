@@ -1,7 +1,7 @@
 {
   "name": "impulso-restaurantero",
   "version": "1.0.0",
-  "description": "Página de empresa impulso restaurantero",
+  "description": "Sitio web corporativo de Growthsuite",
   "private": true,
   "scripts": {
     "dev": "next dev",
