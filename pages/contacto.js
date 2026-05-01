@@ -25,7 +25,10 @@ export default function Contacto() {
           </div>
 
           <div className="mt-10 max-w-3xl mx-auto rounded-2xl border border-slate-200 bg-white p-2 md:p-4 shadow-sm overflow-hidden">
-            <BookingWidget />
+            <BookingWidget
+              slug="growthsuite-demos"
+              eventTypeSlug="demo-growthsuite"
+            />
           </div>
 
           <p className="mt-8 text-center text-sm text-slate-500">
