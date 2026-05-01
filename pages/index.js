@@ -118,6 +118,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="fb-section fb-video-section">
+        <div className="fb-container">
+          <div className="fb-video-header">
+            <span className="fb-pill">Demo en video</span>
+            <h2 className="heading-font mt-3 text-3xl md:text-4xl">
+              Así operamos tu Punto de Venta desde WhatsApp
+            </h2>
+            <p className="mt-3 text-base text-slate-600">
+              Mira en menos de 2 minutos cómo Growthsuite conecta pedidos, caja
+              e inventario en una sola plataforma.
+            </p>
+          </div>
+          <div className="fb-video-frame">
+            <iframe
+              src="https://drive.google.com/file/d/1sJcI0n4oYbgyixE4rgzRPcJBDg8wRtX6/preview"
+              title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="fb-section fb-logo-section">
         <div className="fb-container">
           <div className="fb-logo-header">
@@ -134,25 +158,28 @@ export default function Home() {
             </a>
           </div>
           <div className="fb-logo-panel">
-            <div className="fb-logo-grid">
-              {logoCloud.map((logo, index) => (
-                <div
-                  key={`${logo.alt}-${index}`}
-                  className={`logo-card ${
-                    logo.variant === "dark" ? "logo-card--dark" : ""
-                  } ${logo.variant === "soft" ? "logo-card--soft" : ""} ${
-                    logo.size === "lg" ? "logo-card--lg" : ""
-                  } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
-                    logo.size === "wide" ? "logo-card--wide" : ""
-                  }`}
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ transform: `scale(${logo.scale || 1})` }}
-                  />
-                </div>
-              ))}
+            <div className="fb-logo-marquee" aria-label="Logos de restaurantes que usan Growthsuite">
+              <div className="fb-logo-track">
+                {[...logoCloud, ...logoCloud].map((logo, index) => (
+                  <div
+                    key={`${logo.alt}-${index}`}
+                    className={`logo-card ${
+                      logo.variant === "dark" ? "logo-card--dark" : ""
+                    } ${logo.variant === "soft" ? "logo-card--soft" : ""} ${
+                      logo.size === "lg" ? "logo-card--lg" : ""
+                    } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
+                      logo.size === "wide" ? "logo-card--wide" : ""
+                    }`}
+                    aria-hidden={index >= logoCloud.length ? "true" : undefined}
+                  >
+                    <img
+                      src={logo.src}
+                      alt={index >= logoCloud.length ? "" : logo.alt}
+                      style={{ transform: `scale(${logo.scale || 1})` }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
