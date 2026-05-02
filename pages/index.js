@@ -168,7 +168,7 @@ export default function Home() {
               </button>
             ) : (
               <iframe
-                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview?autoplay=1`}
+                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview`}
                 title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
                 allow="autoplay; fullscreen"
                 allowFullScreen
