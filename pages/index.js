@@ -132,7 +132,7 @@ export default function Home() {
           </div>
           <div className="fb-video-frame">
             <iframe
-              src="https://drive.google.com/file/d/1sJcI0n4oYbgyixE4rgzRPcJBDg8wRtX6/preview"
+              src="https://drive.google.com/file/d/1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD/preview"
               title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
               allow="autoplay; fullscreen"
               allowFullScreen
