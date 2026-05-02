@@ -32,7 +32,13 @@ export default function Contacto() {
           </div>
 
           <p className="mt-8 text-center text-sm text-slate-500">
-            ¿Prefieres escribirnos? <a href="mailto:clientes@growthsuite.com.mx" className="font-medium text-slate-700 underline">clientes@growthsuite.com.mx</a>
+            ¿Prefieres escribirnos?{" "}
+            <a
+              href="mailto:clientes@growthsuite.com.mx"
+              className="font-medium text-slate-800 hover:text-emerald-600 transition-colors no-underline"
+            >
+              clientes@growthsuite.com.mx
+            </a>
           </p>
         </div>
       </section>
