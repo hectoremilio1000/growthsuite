@@ -1,7 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
 import { growthsuiteModules } from "../data/growthsuiteModules";
+
+/* Drive video config — file ID + poster image local. La portada vive en
+ * /public/brand/demo-cover.jpg, así viaja con el deploy de Vercel. */
+const DEMO_VIDEO_FILE_ID = "1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD";
+const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
   {
@@ -76,6 +82,8 @@ const logoCloud = [
 ];
 
 export default function Home() {
+  const [videoStarted, setVideoStarted] = useState(false);
+
   return (
     <div>
       <Head>
@@ -131,13 +139,41 @@ export default function Home() {
             </p>
           </div>
           <div className="fb-video-frame">
-            <iframe
-              src="https://drive.google.com/file/d/1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD/preview"
-              title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              loading="lazy"
-            />
+            {!videoStarted ? (
+              <button
+                type="button"
+                className="fb-video-poster"
+                onClick={() => setVideoStarted(true)}
+                aria-label="Reproducir video demo de Growthsuite"
+              >
+                <img
+                  src={DEMO_POSTER_SRC}
+                  alt="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
+                />
+                <span className="fb-video-poster-overlay" aria-hidden="true">
+                  <span className="fb-video-poster-play">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="32"
+                      height="32"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <span className="fb-video-poster-label">
+                    Ver demo · 2 min
+                  </span>
+                </span>
+              </button>
+            ) : (
+              <iframe
+                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview?autoplay=1`}
+                title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+            )}
           </div>
         </div>
       </section>
