@@ -499,8 +499,8 @@ h3,
 }
 
 .fb-logo-track .logo-card--dark {
-  background: linear-gradient(135deg, #0b1220, #111827);
-  border-color: #0b1220;
+  background: #000;
+  border-color: #000;
 }
 
 .fb-logo-track .logo-card--dark img {
