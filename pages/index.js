@@ -11,8 +11,9 @@ const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
   {
-    src: "/logos/bar-bunny-universidad-logo-300x300.jpg",
+    src: "/logos/bar-bunny.png",
     alt: "Bar Bunny",
+    variant: "dark",
     size: "lg",
     scale: 1.15,
   },
@@ -33,23 +34,23 @@ const logoCloud = [
   {
     src: "/logos/mayta-logo-new.svg",
     alt: "Mayta",
-    variant: "soft",
+    variant: "dark",
     size: "wide",
     scale: 1.1,
   },
   {
-    src: "/logos/mr+lucho.jpg",
+    src: "/logos/mr-lucho.png",
     alt: "Mr Lucho",
-    variant: "soft",
+    variant: "dark",
     size: "lg",
     scale: 1.15,
   },
   {
-    src: "/logos/logo_bambuu.jpeg",
+    src: "/logos/logo_bambuu.png",
     alt: "Bambuu",
     variant: "dark",
-    size: "lg",
-    scale: 1.1,
+    size: "xl",
+    scale: 1.5,
   },
   {
     src: "/logos/fogo-de-chao.svg",
