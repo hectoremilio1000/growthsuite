@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { growthsuiteModules } from "../../data/growthsuiteModules";
 
 const productLinks = growthsuiteModules.map((module) => ({
@@ -35,6 +35,16 @@ export default function FoodbotNav() {
   const toggleMobileGroup = (key) => {
     setMobileGroups((prev) => ({ ...prev, [key]: !prev[key] }));
   };
+
+  // Bloquea el scroll del body mientras el menú móvil está abierto
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="fb-nav">
@@ -165,16 +175,24 @@ export default function FoodbotNav() {
           <button
             className="fb-mobile-toggle"
             type="button"
-            aria-label="Abrir menú"
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            Menú
+            {mobileOpen ? "Cerrar" : "Menú"}
           </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="fb-container fb-mobile-menu">
+        <div
+          className="fb-mobile-overlay"
+          onClick={(e) => {
+            if (e.target === e.currentTarget || e.target.closest("a"))
+              setMobileOpen(false);
+          }}
+        >
+          <div className="fb-container fb-mobile-menu">
           <div className="fb-mobile-group">
             <button
               type="button"
@@ -313,6 +331,7 @@ export default function FoodbotNav() {
           <Link href="/contacto" className="fb-button fb-mobile-cta">
             AGENDAR UNA DEMO
           </Link>
+          </div>
         </div>
       )}
     </header>
