@@ -4,9 +4,9 @@ import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
-/* Drive video config — file ID + poster image local. La portada vive en
- * /public/brand/demo-cover.jpg, así viaja con el deploy de Vercel. */
-const DEMO_VIDEO_FILE_ID = "1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD";
+/* Demo video — self-hosted en /public para reproducir con un solo click.
+ * El MP4 (H.264) y la portada viajan con el deploy de Vercel. */
+const DEMO_VIDEO_SRC = "/brand/demo.mp4";
 const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
@@ -168,11 +168,14 @@ export default function Home() {
                 </span>
               </button>
             ) : (
-              <iframe
-                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview`}
+              <video
+                src={DEMO_VIDEO_SRC}
+                poster={DEMO_POSTER_SRC}
                 title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
-                allow="autoplay; fullscreen"
-                allowFullScreen
+                controls
+                autoPlay
+                playsInline
+                preload="auto"
               />
             )}
           </div>
