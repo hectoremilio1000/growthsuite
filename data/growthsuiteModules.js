@@ -82,11 +82,11 @@ export const growthsuiteModules = [
   },
   {
     id: "factura-inteligente",
-    title: "Factura inteligente",
-    kicker: "Cumple y reporta sin dolor",
+    title: "Facturación electrónica",
+    kicker: "Factura a tus clientes en minutos",
     description:
-      "Facturación integrada con reportes listos para finanzas y control operativo.",
-    chips: ["Facturación", "Reportes", "Control"],
+      "Emite facturas electrónicas (CFDI) a tus clientes directo desde la plataforma, con tus ventas ya cargadas. Sin sistemas aparte ni complicaciones.",
+    chips: ["Facturas CFDI", "Para tus clientes", "Automático"],
     visualImage: "/factura.avif",
   },
 ];
