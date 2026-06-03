@@ -87,6 +87,6 @@ export const growthsuiteModules = [
     description:
       "Emite facturas electrónicas (CFDI) a tus clientes directo desde la plataforma, con tus ventas ya cargadas. Sin sistemas aparte ni complicaciones.",
     chips: ["Facturas CFDI", "Para tus clientes", "Automático"],
-    visualImage: "/factura.avif",
+    visualImage: "/factura.png",
   },
 ];
