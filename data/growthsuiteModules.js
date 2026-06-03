@@ -50,14 +50,14 @@ export const growthsuiteModules = [
   },
   {
     id: "agente-ai-whatsapp",
-    title: "Pedidos con agente AI",
+    title: "Pedidos automáticos con IA",
     kicker: "Del WhatsApp a la cocina, sin fricción",
     description:
-      "Tus clientes ordenan por WhatsApp con un agente de IA que entiende el pedido y lo registra solo en el Punto de Venta. La comanda se envía al instante a cocina y barra, e imprime en tus impresoras conectadas. Todo el flujo, automático.",
-    chips: ["Agente IA", "WhatsApp", "Impresión en cocina"],
+      "Tus clientes ordenan por WhatsApp y el pedido entra solo al Punto de Venta e imprime en cocina. Sin errores y sin papel.",
+    chips: ["WhatsApp", "Automático", "Impresión en cocina"],
     visualImage: "/imagen_2.png",
     visualAlt:
-      "Flujo de pedidos: cliente ordena por WhatsApp con un agente de IA, se registra en el Punto de Venta y se imprime la comanda en cocina",
+      "Flujo de pedidos: el cliente ordena por WhatsApp, entra al Punto de Venta y se imprime la comanda en cocina",
   },
   {
     id: "rewards",
