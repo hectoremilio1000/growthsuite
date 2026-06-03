@@ -1520,3 +1520,27 @@ h3,
     opacity: 1;
   }
 }
+
+/* ── Módulo con imagen a todo el ancho (layout apilado) ── */
+.fb-feature-stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fb-feature-stacked-head {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Imagen al ancho del contenedor, con el mismo marco de los otros módulos */
+.fb-feature-stacked-image {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+/* Deja que la imagen llene el marco ancho (sobrescribe el cap de 520px) */
+.fb-feature-stacked-image .fb-feature-visual-image {
+  max-width: 100%;
+}

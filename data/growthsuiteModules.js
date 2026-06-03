@@ -85,6 +85,7 @@ export const growthsuiteModules = [
       "En el ticket de la cuenta llegan dos QR: uno para ver el detalle de la orden y cuánto consumió, y otro para calificar la atención. Todo desde el celular, sin apps.",
     chips: ["Ver la orden", "Consumo", "Calificar atención"],
     visualImage: "/imagen10.png",
+    fullWidthImage: true,
     visualAlt:
       "Ticket de la cuenta con dos códigos QR: uno para ver el detalle de la orden y el total, y otro para calificar la atención",
   },

@@ -239,49 +239,80 @@ export default function Home() {
                 </h2>
               </div>
             )}
-            <div className="fb-feature-grid">
-              <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  Módulo
-                </p>
-                <p className="mt-2 text-sm font-semibold text-slate-500">
-                  {feature.kicker}
-                </p>
-                <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
-                <p className="mt-4 text-base text-slate-600">
-                  {feature.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {feature.chips.map((chip) => (
-                    <span key={chip} className="fb-pill">
-                      {chip}
-                    </span>
-                  ))}
+            {feature.fullWidthImage ? (
+              <div className="fb-feature-stacked">
+                <div className="fb-feature-stacked-head">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Módulo
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-slate-500">
+                    {feature.kicker}
+                  </p>
+                  <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
+                  <p className="mt-4 text-base text-slate-600">
+                    {feature.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    {feature.chips.map((chip) => (
+                      <span key={chip} className="fb-pill">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="fb-feature-visual fb-feature-visual--image fb-feature-stacked-image">
+                  <img
+                    src={feature.visualImage}
+                    alt={feature.visualAlt || feature.title}
+                    className="fb-feature-visual-image"
+                  />
                 </div>
               </div>
-              <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                <div
-                  className={`fb-feature-visual ${
-                    feature.visualImage ? "fb-feature-visual--image" : ""
-                  }`}
-                >
-                  {feature.visualImage ? (
-                    <img
-                      src={feature.visualImage}
-                      alt={feature.visualAlt || feature.title}
-                      className="fb-feature-visual-image"
-                    />
-                  ) : (
-                    <>
-                      <div className="visual-chip">{feature.title}</div>
-                      <div className="visual-chip">Operación conectada</div>
-                      <div className="visual-chip">Clientes felices</div>
-                      <div className="visual-chip">Más ingresos</div>
-                    </>
-                  )}
+            ) : (
+              <div className="fb-feature-grid">
+                <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    Módulo
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-slate-500">
+                    {feature.kicker}
+                  </p>
+                  <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
+                  <p className="mt-4 text-base text-slate-600">
+                    {feature.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {feature.chips.map((chip) => (
+                      <span key={chip} className="fb-pill">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                  <div
+                    className={`fb-feature-visual ${
+                      feature.visualImage ? "fb-feature-visual--image" : ""
+                    }`}
+                  >
+                    {feature.visualImage ? (
+                      <img
+                        src={feature.visualImage}
+                        alt={feature.visualAlt || feature.title}
+                        className="fb-feature-visual-image"
+                      />
+                    ) : (
+                      <>
+                        <div className="visual-chip">{feature.title}</div>
+                        <div className="visual-chip">Operación conectada</div>
+                        <div className="visual-chip">Clientes felices</div>
+                        <div className="visual-chip">Más ingresos</div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
       ))}
