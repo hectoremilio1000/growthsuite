@@ -69,15 +69,6 @@ export const growthsuiteModules = [
     visualImage: "/reward.png",
   },
   {
-    id: "bots",
-    title: "Bots",
-    kicker: "Atención en redes sin fricción",
-    description:
-      "Automatiza respuestas en WhatsApp y Messenger para que tu equipo se enfoque en el servicio.",
-    chips: ["WhatsApp", "Messenger", "FAQ"],
-    visualImage: "/bots.png",
-  },
-  {
     id: "qr-en-ticket",
     title: "QR en la cuenta",
     kicker: "Ver tu consumo y calificar, al instante",
