@@ -79,12 +79,14 @@ export const growthsuiteModules = [
   },
   {
     id: "qr-en-ticket",
-    title: "QR en ticket",
-    kicker: "Feedback después de cada compra",
+    title: "QR para ordenar y calificar",
+    kicker: "Un código, todo más fácil",
     description:
-      "Mide la satisfacción del cliente con encuestas al escanear el QR del ticket y convierte opiniones en mejoras.",
-    chips: ["Encuestas", "Satisfacción", "Insights"],
+      "El cliente escanea un QR en la mesa para ver el menú y ordenar, y otro QR en el ticket para calificar la atención. Menos filas y más opiniones para mejorar.",
+    chips: ["Pedir por QR", "Encuestas", "Calificar atención"],
     visualImage: "/imagen10.png",
+    visualAlt:
+      "Códigos QR: uno en la mesa para ver el menú y ordenar, y otro en el ticket para calificar la atención con una encuesta",
   },
   {
     id: "factura-inteligente",
