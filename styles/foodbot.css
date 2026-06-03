@@ -169,6 +169,7 @@ h3,
   padding: 0.9rem 1.6rem;
   border-radius: 999px;
   font-weight: 600;
+  white-space: nowrap;
   box-shadow: 0 16px 32px rgba(29, 133, 244, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }

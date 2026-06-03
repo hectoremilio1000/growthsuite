@@ -98,7 +98,7 @@ export default function FoodbotNav() {
         <div className="flex items-center gap-3">
           <span className="hidden md:inline-flex">
             <Link href="/contacto" className="fb-button">
-              AGENDAR UNA DEMO
+              AGENDAR DEMO
             </Link>
           </span>
           {APP_LINKS.length > 0 && (
