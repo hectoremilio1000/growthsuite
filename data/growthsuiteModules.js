@@ -49,13 +49,15 @@ export const growthsuiteModules = [
     visualImage: "/imagen8.png",
   },
   {
-    id: "tienda-en-linea",
-    title: "Tienda en línea",
-    kicker: "Tu canal directo sin comisiones",
+    id: "agente-ai-whatsapp",
+    title: "Pedidos con agente AI",
+    kicker: "Del WhatsApp a la cocina, sin fricción",
     description:
-      "Recibe pedidos a domicilio o pick-up con una experiencia de marca consistente y márgenes más altos.",
-    chips: ["Pick-up", "Delivery propio", "Marca"],
+      "Tus clientes ordenan por WhatsApp con un agente de IA que entiende el pedido y lo registra solo en el Punto de Venta. La comanda se envía al instante a cocina y barra, e imprime en tus impresoras conectadas. Todo el flujo, automático.",
+    chips: ["Agente IA", "WhatsApp", "Impresión en cocina"],
     visualImage: "/imagen_2.png",
+    visualAlt:
+      "Flujo de pedidos: cliente ordena por WhatsApp con un agente de IA, se registra en el Punto de Venta y se imprime la comanda en cocina",
   },
   {
     id: "rewards",
