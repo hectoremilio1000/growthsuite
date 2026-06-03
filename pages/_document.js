@@ -6,6 +6,20 @@ export default function Document() {
     <Html>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#0088ff" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Growthsuite | Plataforma para restaurantes" />
+        <meta property="og:description" content="Growthsuite reúne ventas, operación y lealtad para restaurantes en una sola plataforma." />
+        <meta property="og:image" content="https://www.growthsuite.tech/growthsuite-logo-blue-1024.png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.growthsuite.tech/growthsuite-logo-blue-1024.png" />
         <Script
           id="gtm-script"
           strategy="afterInteractive"
