@@ -1,12 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
+/* Drive video config — file ID + poster image local. La portada vive en
+ * /public/brand/demo-cover.jpg, así viaja con el deploy de Vercel. */
+const DEMO_VIDEO_FILE_ID = "1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD";
+const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
+
 const logoCloud = [
   {
-    src: "/logos/bar-bunny-universidad-logo-300x300.jpg",
+    src: "/logos/bar-bunny.png",
     alt: "Bar Bunny",
+    variant: "dark",
     size: "lg",
     scale: 1.15,
   },
@@ -27,23 +34,23 @@ const logoCloud = [
   {
     src: "/logos/mayta-logo-new.svg",
     alt: "Mayta",
-    variant: "soft",
+    variant: "dark",
     size: "wide",
     scale: 1.1,
   },
   {
-    src: "/logos/mr+lucho.jpg",
+    src: "/logos/mr-lucho.png",
     alt: "Mr Lucho",
-    variant: "soft",
+    variant: "dark",
     size: "lg",
     scale: 1.15,
   },
   {
-    src: "/logos/logo_bambuu.jpeg",
+    src: "/logos/logo_bambuu.png",
     alt: "Bambuu",
     variant: "dark",
-    size: "lg",
-    scale: 1.1,
+    size: "xl",
+    scale: 1.5,
   },
   {
     src: "/logos/fogo-de-chao.svg",
@@ -76,6 +83,8 @@ const logoCloud = [
 ];
 
 export default function Home() {
+  const [videoStarted, setVideoStarted] = useState(false);
+
   return (
     <div>
       <Head>
@@ -121,6 +130,58 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="fb-section fb-video-section">
+        <div className="fb-container">
+          <div className="fb-video-header">
+            <span className="fb-pill">Demo en video</span>
+            <h2 className="heading-font mt-3 text-3xl md:text-4xl">
+              Así operamos tu Punto de Venta desde WhatsApp
+            </h2>
+            <p className="mt-3 text-base text-slate-600">
+              Mira en menos de 2 minutos cómo Growthsuite conecta pedidos, caja
+              e inventario en una sola plataforma.
+            </p>
+          </div>
+          <div className="fb-video-frame">
+            {!videoStarted ? (
+              <button
+                type="button"
+                className="fb-video-poster"
+                onClick={() => setVideoStarted(true)}
+                aria-label="Reproducir video demo de Growthsuite"
+              >
+                <img
+                  src={DEMO_POSTER_SRC}
+                  alt="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
+                />
+                <span className="fb-video-poster-overlay" aria-hidden="true">
+                  <span className="fb-video-poster-play">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="32"
+                      height="32"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <span className="fb-video-poster-label">
+                    Ver demo · 2 min
+                  </span>
+                </span>
+              </button>
+            ) : (
+              <iframe
+                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview`}
+                title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="fb-section fb-logo-section">
         <div className="fb-container">
           <div className="fb-logo-header">
@@ -137,25 +198,28 @@ export default function Home() {
             </a>
           </div>
           <div className="fb-logo-panel">
-            <div className="fb-logo-grid">
-              {logoCloud.map((logo, index) => (
-                <div
-                  key={`${logo.alt}-${index}`}
-                  className={`logo-card ${
-                    logo.variant === "dark" ? "logo-card--dark" : ""
-                  } ${logo.variant === "soft" ? "logo-card--soft" : ""} ${
-                    logo.size === "lg" ? "logo-card--lg" : ""
-                  } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
-                    logo.size === "wide" ? "logo-card--wide" : ""
-                  }`}
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ transform: `scale(${logo.scale || 1})` }}
-                  />
-                </div>
-              ))}
+            <div className="fb-logo-marquee" aria-label="Logos de restaurantes que usan Growthsuite">
+              <div className="fb-logo-track">
+                {[...logoCloud, ...logoCloud].map((logo, index) => (
+                  <div
+                    key={`${logo.alt}-${index}`}
+                    className={`logo-card ${
+                      logo.variant === "dark" ? "logo-card--dark" : ""
+                    } ${logo.variant === "soft" ? "logo-card--soft" : ""} ${
+                      logo.size === "lg" ? "logo-card--lg" : ""
+                    } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
+                      logo.size === "wide" ? "logo-card--wide" : ""
+                    }`}
+                    aria-hidden={index >= logoCloud.length ? "true" : undefined}
+                  >
+                    <img
+                      src={logo.src}
+                      alt={index >= logoCloud.length ? "" : logo.alt}
+                      style={{ transform: `scale(${logo.scale || 1})` }}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
