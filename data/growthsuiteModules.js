@@ -79,14 +79,14 @@ export const growthsuiteModules = [
   },
   {
     id: "qr-en-ticket",
-    title: "QR para ordenar y calificar",
-    kicker: "Un código, todo más fácil",
+    title: "QR en la cuenta",
+    kicker: "Ver tu consumo y calificar, al instante",
     description:
-      "El cliente escanea un QR en la mesa para ver el menú y ordenar, y otro QR en el ticket para calificar la atención. Menos filas y más opiniones para mejorar.",
-    chips: ["Pedir por QR", "Encuestas", "Calificar atención"],
+      "En el ticket de la cuenta llegan dos QR: uno para ver el detalle de la orden y cuánto consumió, y otro para calificar la atención. Todo desde el celular, sin apps.",
+    chips: ["Ver la orden", "Consumo", "Calificar atención"],
     visualImage: "/imagen10.png",
     visualAlt:
-      "Códigos QR: uno en la mesa para ver el menú y ordenar, y otro en el ticket para calificar la atención con una encuesta",
+      "Ticket de la cuenta con dos códigos QR: uno para ver el detalle de la orden y el total, y otro para calificar la atención",
   },
   {
     id: "factura-inteligente",
