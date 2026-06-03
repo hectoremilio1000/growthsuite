@@ -107,11 +107,10 @@ export default function FoodbotNav() {
                 type="button"
                 className="fb-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #f5c842 0%, #d4a017 100%)",
-                  color: "#3a2a05",
-                  border: "1.5px solid #b8860b",
-                  boxShadow: "0 2px 6px rgba(212, 160, 23, 0.35)",
+                  background: "#eff6ff",
+                  color: "#0f63d6",
+                  border: "1.5px solid #bfdbfe",
+                  boxShadow: "0 2px 6px rgba(29, 133, 244, 0.15)",
                   fontWeight: 700,
                 }}
               >
@@ -122,12 +121,12 @@ export default function FoodbotNav() {
                   style={{
                     padding: "8px 12px",
                     fontSize: 11,
-                    color: "#92400e",
+                    color: "#0f63d6",
                     textTransform: "uppercase",
                     letterSpacing: 0.5,
-                    borderBottom: "1px solid #fde68a",
+                    borderBottom: "1px solid #dbeafe",
                     marginBottom: 4,
-                    background: "#fffbeb",
+                    background: "#eff6ff",
                     fontWeight: 600,
                   }}
                 >
