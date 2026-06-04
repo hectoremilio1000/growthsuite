@@ -11,7 +11,7 @@ const restaurantLinks = [
   { label: "Fast casual", href: "/contacto" },
   { label: "Comida rápida", href: "/contacto" },
   { label: "Casual dining", href: "/contacto" },
-  { label: "Dark kitchen", href: "/contacto" },
+  { label: "Dark kitchen", href: "/tipo-restaurante/dark-kitchen" },
 ];
 
 /* Apps POS — las URLs vienen de .env (NEXT_PUBLIC_APP_*_URL).

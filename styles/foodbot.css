@@ -1544,3 +1544,43 @@ h3,
 .fb-feature-stacked-image .fb-feature-visual-image {
   max-width: 100%;
 }
+
+/* ── Landings por tipo de restaurante ── */
+.fb-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  width: 100%;
+  min-height: 240px;
+  border: 1.5px dashed rgba(29, 133, 244, 0.4);
+  border-radius: 20px;
+  background: linear-gradient(
+    160deg,
+    rgba(29, 133, 244, 0.06),
+    rgba(237, 216, 161, 0.12)
+  );
+  color: var(--brand-ink-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.fb-img-placeholder span {
+  max-width: 340px;
+}
+
+.fb-step-num {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 18px rgba(29, 133, 244, 0.35);
+}
