@@ -211,7 +211,7 @@ export const restaurantTypes = {
       pill: "Caso real",
       quote:
         "Teníamos varias sucursales y cada una era un mundo. Con GrowthSuite por fin vemos todo junto: ventas por local, horas pico y qué se vende más. Ahora decidimos con datos, no con corazonadas.",
-      name: "Mariana Ríos",
+      name: "Fernando Maximo",
       role: "Gerente de operaciones de La Llorona",
       image: {
         src: "/tipos/fast-casual/testimonial.png",
