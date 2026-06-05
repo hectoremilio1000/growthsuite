@@ -88,6 +88,13 @@ const logoCloud = [
     scale: 1.1,
     white: true,
   },
+  {
+    src: "/logos/finca-robles.jpeg",
+    alt: "Finca Robles",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+  },
 ];
 
 export default function Home() {
