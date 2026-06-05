@@ -513,6 +513,11 @@ h3,
   background: #f5f7fb;
 }
 
+.fb-logo-track .logo-card--white img {
+  filter: brightness(0) invert(1)
+    drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+}
+
 .fb-logo-track .logo-card--lg img {
   max-height: 100px;
   max-width: 240px;
@@ -1583,4 +1588,109 @@ h3,
   font-weight: 700;
   font-size: 1.05rem;
   box-shadow: 0 8px 18px rgba(29, 133, 244, 0.35);
+}
+
+/* Cierra el dropdown de escritorio tras hacer click en un enlace
+   (anula :hover y :focus-within hasta que el mouse sale del dropdown) */
+.fb-nav-dropdown.fb-dd-closing .fb-nav-panel {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(8px) !important;
+}
+
+/* Módulos clickeables del home (título e imagen -> /modulo/[slug]) */
+.fb-module-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.fb-module-link h2 {
+  transition: color 0.2s ease;
+}
+.fb-module-link:hover h2 {
+  color: var(--brand-blue-dark);
+}
+
+.fb-module-img-link {
+  cursor: pointer;
+}
+.fb-module-img-link img {
+  transition: transform 0.25s ease;
+}
+.fb-module-img-link:hover img {
+  transform: translateY(-4px);
+}
+
+/* ── Página /modulos: grid de cards ── */
+.fb-modules-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.fb-module-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--brand-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fb-module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.fb-module-card-img {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(
+    160deg,
+    rgba(29, 133, 244, 0.08),
+    rgba(237, 216, 161, 0.15)
+  );
+}
+
+.fb-module-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fb-module-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.fb-module-card-kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-ink-muted);
+}
+
+.fb-module-card-body h3 {
+  font-size: 1.25rem;
+}
+
+.fb-module-card-desc {
+  flex: 1;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.fb-module-card-cta {
+  margin-top: 0.5rem;
+  color: var(--brand-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
 }

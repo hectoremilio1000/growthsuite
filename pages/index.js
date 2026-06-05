@@ -80,6 +80,14 @@ const logoCloud = [
     size: "lg",
     scale: 1.1,
   },
+  {
+    src: "/logos/oc-logo.png",
+    alt: "OC",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+    white: true,
+  },
 ];
 
 export default function Home() {
@@ -209,7 +217,7 @@ export default function Home() {
                       logo.size === "lg" ? "logo-card--lg" : ""
                     } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
                       logo.size === "wide" ? "logo-card--wide" : ""
-                    }`}
+                    } ${logo.white ? "logo-card--white" : ""}`}
                     aria-hidden={index >= logoCloud.length ? "true" : undefined}
                   >
                     <img
@@ -233,8 +241,11 @@ export default function Home() {
         >
           <div className="fb-container">
             {index === 0 && (
-              <div className="mb-10">
-                <h2 className="heading-font mt-2 text-3xl md:text-4xl">
+              <div className="mb-10 text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Módulos
+                </p>
+                <h2 className="heading-font mt-4 text-3xl md:text-4xl">
                   Todo lo que necesitas en una sola plataforma
                 </h2>
               </div>
@@ -242,13 +253,17 @@ export default function Home() {
             {feature.fullWidthImage ? (
               <div className="fb-feature-stacked">
                 <div className="fb-feature-stacked-head">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    Módulo
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-slate-500">
+                  <p className="text-sm font-semibold text-slate-500">
                     {feature.kicker}
                   </p>
-                  <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
+                  <Link
+                    href={`/modulo/${feature.slug}`}
+                    className="fb-module-link"
+                  >
+                    <h2 className="heading-font mt-2 text-3xl text-primary">
+                      Módulo: {feature.title}
+                    </h2>
+                  </Link>
                   <p className="mt-4 text-base text-slate-600">
                     {feature.description}
                   </p>
@@ -260,24 +275,31 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className="fb-feature-visual fb-feature-visual--image fb-feature-stacked-image">
+                <Link
+                  href={`/modulo/${feature.slug}`}
+                  className="fb-feature-visual fb-feature-visual--image fb-feature-stacked-image fb-module-img-link"
+                >
                   <img
                     src={feature.visualImage}
                     alt={feature.visualAlt || feature.title}
                     className="fb-feature-visual-image"
                   />
-                </div>
+                </Link>
               </div>
             ) : (
               <div className="fb-feature-grid">
                 <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    Módulo
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-slate-500">
+                  <p className="text-sm font-semibold text-slate-500">
                     {feature.kicker}
                   </p>
-                  <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
+                  <Link
+                    href={`/modulo/${feature.slug}`}
+                    className="fb-module-link"
+                  >
+                    <h2 className="heading-font mt-2 text-3xl text-primary">
+                      Módulo: {feature.title}
+                    </h2>
+                  </Link>
                   <p className="mt-4 text-base text-slate-600">
                     {feature.description}
                   </p>
@@ -296,11 +318,16 @@ export default function Home() {
                     }`}
                   >
                     {feature.visualImage ? (
-                      <img
-                        src={feature.visualImage}
-                        alt={feature.visualAlt || feature.title}
-                        className="fb-feature-visual-image"
-                      />
+                      <Link
+                        href={`/modulo/${feature.slug}`}
+                        className="fb-module-img-link"
+                      >
+                        <img
+                          src={feature.visualImage}
+                          alt={feature.visualAlt || feature.title}
+                          className="fb-feature-visual-image"
+                        />
+                      </Link>
                     ) : (
                       <>
                         <div className="visual-chip">{feature.title}</div>

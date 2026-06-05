@@ -4,13 +4,13 @@ import { growthsuiteModules } from "../../data/growthsuiteModules";
 
 const productLinks = growthsuiteModules.map((module) => ({
   label: module.title,
-  href: `/#${module.id}`,
+  href: `/modulo/${module.slug}`,
 }));
 
 const restaurantLinks = [
-  { label: "Fast casual", href: "/contacto" },
-  { label: "Comida rápida", href: "/contacto" },
-  { label: "Casual dining", href: "/contacto" },
+  { label: "Fast casual", href: "/tipo-restaurante/fast-casual" },
+  { label: "Comida rápida", href: "/tipo-restaurante/comida-rapida" },
+  { label: "Casual dining", href: "/tipo-restaurante/casual-dining" },
   { label: "Dark kitchen", href: "/tipo-restaurante/dark-kitchen" },
 ];
 
@@ -46,6 +46,17 @@ export default function FoodbotNav() {
     };
   }, [mobileOpen]);
 
+  // Cierra el dropdown de escritorio al hacer click en un enlace (el :hover lo
+  // mantenía abierto tras navegar). Se reactiva al salir con el mouse.
+  const closeDropdownOnLink = (e) => {
+    if (e.target.closest("a")) {
+      e.currentTarget.closest(".fb-nav-dropdown")?.classList.add("fb-dd-closing");
+    }
+  };
+  const reopenDropdown = (e) => {
+    e.currentTarget.classList.remove("fb-dd-closing");
+  };
+
   return (
     <header className="fb-nav">
       <div className="fb-container fb-nav-inner">
@@ -58,11 +69,11 @@ export default function FoodbotNav() {
         </Link>
 
         <nav className="fb-nav-menu">
-          <div className="fb-nav-dropdown">
+          <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
             <button className="fb-nav-link" type="button">
               Producto
             </button>
-            <div className="fb-nav-panel">
+            <div className="fb-nav-panel" onClick={closeDropdownOnLink}>
               {productLinks.map((item) => (
                 <Link key={item.label} href={item.href}>
                   {item.label}
@@ -71,11 +82,11 @@ export default function FoodbotNav() {
             </div>
           </div>
 
-          <div className="fb-nav-dropdown">
+          <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
             <button className="fb-nav-link" type="button">
               Tipo de restaurante
             </button>
-            <div className="fb-nav-panel">
+            <div className="fb-nav-panel" onClick={closeDropdownOnLink}>
               {restaurantLinks.map((item) => (
                 <Link key={item.label} href={item.href}>
                   {item.label}
