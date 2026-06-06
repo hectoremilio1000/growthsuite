@@ -410,7 +410,7 @@ export const restaurantTypes = {
     hero: {
       pill: "Casual dining",
       title:
-        "Eleva la experiencia en mesa y controla tu casual dining desde WhatsApp",
+        "Administra tu restaurante y revisa tus ventas desde tu celular",
       subtitle:
         "GrowthSuite conecta pedidos, cocina, inventario y ventas en una sola operación conversacional.",
       cta: "Ver cómo funciona",
