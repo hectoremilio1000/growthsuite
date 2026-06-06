@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { growthsuiteModules } from "../../data/growthsuiteModules";
 
 const productLinks = growthsuiteModules.map((module) => ({
   label: module.title,
-  href: `/#${module.id}`,
+  href: `/modulo/${module.slug}`,
 }));
 
 const restaurantLinks = [
-  { label: "Fast casual", href: "/contacto" },
-  { label: "Comida rápida", href: "/contacto" },
-  { label: "Casual dining", href: "/contacto" },
-  { label: "Dark kitchen", href: "/contacto" },
+  { label: "Fast casual", href: "/tipo-restaurante/fast-casual" },
+  { label: "Comida rápida", href: "/tipo-restaurante/comida-rapida" },
+  { label: "Casual dining", href: "/tipo-restaurante/casual-dining" },
+  { label: "Dark kitchen", href: "/tipo-restaurante/dark-kitchen" },
 ];
 
 /* Apps POS — las URLs vienen de .env (NEXT_PUBLIC_APP_*_URL).
@@ -36,6 +36,27 @@ export default function FoodbotNav() {
     setMobileGroups((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  // Bloquea el scroll del body mientras el menú móvil está abierto
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
+  // Cierra el dropdown de escritorio al hacer click en un enlace (el :hover lo
+  // mantenía abierto tras navegar). Se reactiva al salir con el mouse.
+  const closeDropdownOnLink = (e) => {
+    if (e.target.closest("a")) {
+      e.currentTarget.closest(".fb-nav-dropdown")?.classList.add("fb-dd-closing");
+    }
+  };
+  const reopenDropdown = (e) => {
+    e.currentTarget.classList.remove("fb-dd-closing");
+  };
+
   return (
     <header className="fb-nav">
       <div className="fb-container fb-nav-inner">
@@ -48,11 +69,11 @@ export default function FoodbotNav() {
         </Link>
 
         <nav className="fb-nav-menu">
-          <div className="fb-nav-dropdown">
+          <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
             <button className="fb-nav-link" type="button">
               Producto
             </button>
-            <div className="fb-nav-panel">
+            <div className="fb-nav-panel" onClick={closeDropdownOnLink}>
               {productLinks.map((item) => (
                 <Link key={item.label} href={item.href}>
                   {item.label}
@@ -61,11 +82,11 @@ export default function FoodbotNav() {
             </div>
           </div>
 
-          <div className="fb-nav-dropdown">
+          <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
             <button className="fb-nav-link" type="button">
               Tipo de restaurante
             </button>
-            <div className="fb-nav-panel">
+            <div className="fb-nav-panel" onClick={closeDropdownOnLink}>
               {restaurantLinks.map((item) => (
                 <Link key={item.label} href={item.href}>
                   {item.label}
@@ -88,7 +109,7 @@ export default function FoodbotNav() {
         <div className="flex items-center gap-3">
           <span className="hidden md:inline-flex">
             <Link href="/contacto" className="fb-button">
-              AGENDAR UNA DEMO
+              AGENDAR DEMO
             </Link>
           </span>
           {APP_LINKS.length > 0 && (
@@ -97,11 +118,10 @@ export default function FoodbotNav() {
                 type="button"
                 className="fb-button"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #f5c842 0%, #d4a017 100%)",
-                  color: "#3a2a05",
-                  border: "1.5px solid #b8860b",
-                  boxShadow: "0 2px 6px rgba(212, 160, 23, 0.35)",
+                  background: "#eff6ff",
+                  color: "#0f63d6",
+                  border: "1.5px solid #bfdbfe",
+                  boxShadow: "0 2px 6px rgba(29, 133, 244, 0.15)",
                   fontWeight: 700,
                 }}
               >
@@ -112,12 +132,12 @@ export default function FoodbotNav() {
                   style={{
                     padding: "8px 12px",
                     fontSize: 11,
-                    color: "#92400e",
+                    color: "#0f63d6",
                     textTransform: "uppercase",
                     letterSpacing: 0.5,
-                    borderBottom: "1px solid #fde68a",
+                    borderBottom: "1px solid #dbeafe",
                     marginBottom: 4,
-                    background: "#fffbeb",
+                    background: "#eff6ff",
                     fontWeight: 600,
                   }}
                 >
@@ -165,16 +185,24 @@ export default function FoodbotNav() {
           <button
             className="fb-mobile-toggle"
             type="button"
-            aria-label="Abrir menú"
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            Menú
+            {mobileOpen ? "Cerrar" : "Menú"}
           </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="fb-container fb-mobile-menu">
+        <div
+          className="fb-mobile-overlay"
+          onClick={(e) => {
+            if (e.target === e.currentTarget || e.target.closest("a"))
+              setMobileOpen(false);
+          }}
+        >
+          <div className="fb-container fb-mobile-menu">
           <div className="fb-mobile-group">
             <button
               type="button"
@@ -313,6 +341,7 @@ export default function FoodbotNav() {
           <Link href="/contacto" className="fb-button fb-mobile-cta">
             AGENDAR UNA DEMO
           </Link>
+          </div>
         </div>
       )}
     </header>

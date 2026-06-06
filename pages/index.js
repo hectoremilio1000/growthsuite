@@ -4,9 +4,9 @@ import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
-/* Drive video config — file ID + poster image local. La portada vive en
- * /public/brand/demo-cover.jpg, así viaja con el deploy de Vercel. */
-const DEMO_VIDEO_FILE_ID = "1cISDCmYYwKjZ2W_W6uuFo76Tt7-ATZoD";
+/* Demo video — self-hosted en /public para reproducir con un solo click.
+ * El MP4 (H.264) y la portada viajan con el deploy de Vercel. */
+const DEMO_VIDEO_SRC = "/brand/demo.mp4";
 const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
@@ -76,6 +76,21 @@ const logoCloud = [
   {
     src: "/logos/nk-hotel.svg",
     alt: "NKO Restaurante",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/oc-logo.png",
+    alt: "OC",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+    white: true,
+  },
+  {
+    src: "/logos/finca-robles.jpeg",
+    alt: "Finca Robles",
     variant: "dark",
     size: "lg",
     scale: 1.1,
@@ -171,11 +186,14 @@ export default function Home() {
                 </span>
               </button>
             ) : (
-              <iframe
-                src={`https://drive.google.com/file/d/${DEMO_VIDEO_FILE_ID}/preview`}
+              <video
+                src={DEMO_VIDEO_SRC}
+                poster={DEMO_POSTER_SRC}
                 title="Demo Growthsuite — Punto de Venta operado desde WhatsApp"
-                allow="autoplay; fullscreen"
-                allowFullScreen
+                controls
+                autoPlay
+                playsInline
+                preload="auto"
               />
             )}
           </div>
@@ -209,7 +227,7 @@ export default function Home() {
                       logo.size === "lg" ? "logo-card--lg" : ""
                     } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
                       logo.size === "wide" ? "logo-card--wide" : ""
-                    }`}
+                    } ${logo.white ? "logo-card--white" : ""}`}
                     aria-hidden={index >= logoCloud.length ? "true" : undefined}
                   >
                     <img
@@ -233,55 +251,105 @@ export default function Home() {
         >
           <div className="fb-container">
             {index === 0 && (
-              <div className="mb-10">
-                <h2 className="heading-font mt-2 text-3xl md:text-4xl">
+              <div className="mb-10 text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Módulos
+                </p>
+                <h2 className="heading-font mt-4 text-3xl md:text-4xl">
                   Todo lo que necesitas en una sola plataforma
                 </h2>
               </div>
             )}
-            <div className="fb-feature-grid">
-              <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                  Módulo
-                </p>
-                <p className="mt-2 text-sm font-semibold text-slate-500">
-                  {feature.kicker}
-                </p>
-                <h2 className="heading-font mt-2 text-3xl">{feature.title}</h2>
-                <p className="mt-4 text-base text-slate-600">
-                  {feature.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {feature.chips.map((chip) => (
-                    <span key={chip} className="fb-pill">
-                      {chip}
-                    </span>
-                  ))}
+            {feature.fullWidthImage ? (
+              <div className="fb-feature-stacked">
+                <div className="fb-feature-stacked-head">
+                  <p className="text-sm font-semibold text-slate-500">
+                    {feature.kicker}
+                  </p>
+                  <Link
+                    href={`/modulo/${feature.slug}`}
+                    className="fb-module-link"
+                  >
+                    <h2 className="heading-font mt-2 text-3xl text-primary">
+                      Módulo: {feature.title}
+                    </h2>
+                  </Link>
+                  <p className="mt-4 text-base text-slate-600">
+                    {feature.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    {feature.chips.map((chip) => (
+                      <span key={chip} className="fb-pill">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                <div
-                  className={`fb-feature-visual ${
-                    feature.visualImage ? "fb-feature-visual--image" : ""
-                  }`}
+                <Link
+                  href={`/modulo/${feature.slug}`}
+                  className="fb-feature-visual fb-feature-visual--image fb-feature-stacked-image fb-module-img-link"
                 >
-                  {feature.visualImage ? (
-                    <img
-                      src={feature.visualImage}
-                      alt={feature.visualAlt || feature.title}
-                      className="fb-feature-visual-image"
-                    />
-                  ) : (
-                    <>
-                      <div className="visual-chip">{feature.title}</div>
-                      <div className="visual-chip">Operación conectada</div>
-                      <div className="visual-chip">Clientes felices</div>
-                      <div className="visual-chip">Más ingresos</div>
-                    </>
-                  )}
+                  <img
+                    src={feature.visualImage}
+                    alt={feature.visualAlt || feature.title}
+                    className="fb-feature-visual-image"
+                  />
+                </Link>
+              </div>
+            ) : (
+              <div className="fb-feature-grid">
+                <div className={index % 2 === 1 ? "md:order-2" : ""}>
+                  <p className="text-sm font-semibold text-slate-500">
+                    {feature.kicker}
+                  </p>
+                  <Link
+                    href={`/modulo/${feature.slug}`}
+                    className="fb-module-link"
+                  >
+                    <h2 className="heading-font mt-2 text-3xl text-primary">
+                      Módulo: {feature.title}
+                    </h2>
+                  </Link>
+                  <p className="mt-4 text-base text-slate-600">
+                    {feature.description}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {feature.chips.map((chip) => (
+                      <span key={chip} className="fb-pill">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className={index % 2 === 1 ? "md:order-1" : ""}>
+                  <div
+                    className={`fb-feature-visual ${
+                      feature.visualImage ? "fb-feature-visual--image" : ""
+                    }`}
+                  >
+                    {feature.visualImage ? (
+                      <Link
+                        href={`/modulo/${feature.slug}`}
+                        className="fb-module-img-link"
+                      >
+                        <img
+                          src={feature.visualImage}
+                          alt={feature.visualAlt || feature.title}
+                          className="fb-feature-visual-image"
+                        />
+                      </Link>
+                    ) : (
+                      <>
+                        <div className="visual-chip">{feature.title}</div>
+                        <div className="visual-chip">Operación conectada</div>
+                        <div className="visual-chip">Clientes felices</div>
+                        <div className="visual-chip">Más ingresos</div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </section>
       ))}
