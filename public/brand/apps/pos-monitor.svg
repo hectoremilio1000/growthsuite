@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#2278e8"/>
+    <stop offset="60%" stop-color="#1558b0"/>
+    <stop offset="100%" stop-color="#0a2d6e"/>
+  </radialGradient>
+</defs>
+<rect width="512" height="512" rx="102" fill="url(#bg)"/>
+<circle cx="256" cy="256" r="230" fill="none" stroke="#4a9eff" stroke-width="14" stroke-linecap="round" stroke-dasharray="1090 354" stroke-dashoffset="-29" opacity="0.5"/>
+<circle cx="256" cy="256" r="230" fill="none" stroke="#f0a500" stroke-width="18" stroke-linecap="round" stroke-dasharray="115 1309" stroke-dashoffset="51"/>
+<!-- Monitor bezel -->
+<rect x="60" y="90" width="392" height="272" rx="22" fill="white" opacity="0.93"/>
+<rect x="84" y="114" width="344" height="220" rx="10" fill="#0a2d6e"/>
+<!-- KDS ticket rows -->
+<rect x="104" y="136" width="80" height="18" rx="5" fill="#f0a500"/>
+<rect x="196" y="136" width="172" height="18" rx="5" fill="white" opacity="0.55"/>
+
+<rect x="104" y="170" width="58" height="15" rx="4" fill="#3dff9e" opacity="0.9"/>
+<rect x="174" y="170" width="120" height="15" rx="4" fill="white" opacity="0.3"/>
+
+<rect x="104" y="200" width="70" height="15" rx="4" fill="#3dff9e" opacity="0.9"/>
+<rect x="186" y="200" width="144" height="15" rx="4" fill="white" opacity="0.3"/>
+
+<rect x="104" y="230" width="46" height="15" rx="4" fill="#f0a500" opacity="0.85"/>
+<rect x="162" y="230" width="96" height="15" rx="4" fill="white" opacity="0.3"/>
+
+<rect x="104" y="260" width="62" height="15" rx="4" fill="#3dff9e" opacity="0.9"/>
+<rect x="178" y="260" width="108" height="15" rx="4" fill="white" opacity="0.3"/>
+<!-- Stand neck -->
+<rect x="226" y="362" width="60" height="52" rx="6" fill="white" opacity="0.55"/>
+<!-- Stand base -->
+<rect x="156" y="408" width="200" height="28" rx="14" fill="white" opacity="0.55"/>
+</svg>
