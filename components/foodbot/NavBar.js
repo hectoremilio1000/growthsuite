@@ -18,10 +18,10 @@ const restaurantLinks = [
  * Si una URL está vacía, el link no se muestra en el dropdown.
  * Los iconos están en /public/brand/apps/. */
 const APP_LINKS = [
-  { label: "Panel admin", icon: "/brand/apps/pos-admin.png", url: process.env.NEXT_PUBLIC_APP_ADMIN_URL || "" },
-  { label: "Caja", icon: "/brand/apps/pos-cash.png", url: process.env.NEXT_PUBLIC_APP_CASH_URL || "" },
-  { label: "Comandero", icon: "/brand/apps/pos-comandero.png", url: process.env.NEXT_PUBLIC_APP_COMANDERO_URL || "" },
-  { label: "Monitor de cocina", icon: "/brand/apps/pos-monitor.png", url: process.env.NEXT_PUBLIC_APP_MONITOR_URL || "" },
+  { label: "Panel admin", icon: "/brand/apps/pos-admin.svg", url: process.env.NEXT_PUBLIC_APP_ADMIN_URL || "" },
+  { label: "Caja", icon: "/brand/apps/pos-cash.svg", url: process.env.NEXT_PUBLIC_APP_CASH_URL || "" },
+  { label: "Comandero", icon: "/brand/apps/pos-comandero.svg", url: process.env.NEXT_PUBLIC_APP_COMANDERO_URL || "" },
+  { label: "Monitor de cocina", icon: "/brand/apps/pos-monitor.svg", url: process.env.NEXT_PUBLIC_APP_MONITOR_URL || "" },
 ].filter((a) => a.url);
 
 export default function FoodbotNav() {

@@ -108,6 +108,9 @@ export default function Home() {
           name="description"
           content="Growthsuite reúne ventas, operación y lealtad para restaurantes en una sola plataforma."
         />
+        <meta property="og:title" content="Growthsuite | Plataforma para restaurantes" />
+        <meta property="og:description" content="Growthsuite reúne ventas, operación y lealtad para restaurantes en una sola plataforma." />
+        <meta property="og:image" content="https://www.growthsuite.tech/growthsuite-logo-blue-1024.png" />
       </Head>
 
       <NavBar />
@@ -134,8 +137,8 @@ export default function Home() {
           </div>
           <div className="fb-hero-visual">
             <img
-              src="/imagen_6.png"
-              alt="Growthsuite sincroniza pedidos e inventario en un solo tablero"
+              src="/hero-whatsapp-banner.png"
+              alt="Controla tu restaurante desde WhatsApp: POS, caja, cocina, delivery propio e inventario"
               className="fb-hero-visual-image"
             />
           </div>

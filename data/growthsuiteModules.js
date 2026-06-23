@@ -74,38 +74,38 @@ export const growthsuiteModules = [
   {
     id: "central-de-pedidos",
     slug: "central-de-pedidos",
-    title: "Central de pedidos",
-    kicker: "Un solo tablero, todas tus apps",
+    title: "Delivery propio",
+    kicker: "Tu marca. Tu dominio. Tus clientes.",
     description:
-      "Agrupa los pedidos de delivery en una interfaz única y concilia ventas con menos fricción al cierre de caja.",
-    chips: ["Agregadores", "Consolidación", "Cortes diarios"],
-    visualImage: "/imagen11.png",
+      "Monta tu propio delivery —con tus motos y GPS en tiempo real— en lugar de depender de agregadores. Sin comisiones de terceros.",
+    chips: ["Marca propia", "GPS en tiempo real", "Sin comisiones"],
+    visualImage: "/delivery-propio.png",
     visualAlt:
-      "Growthsuite sincroniza pedidos en Punto de Venta (POS), cocina y WhatsApp",
+      "Centro de control de delivery propio de Growthsuite con seguimiento GPS en tiempo real",
     detail:
-      "Reúne los pedidos de todas tus apps de delivery en un solo tablero. En lugar de saltar entre Rappi, Uber y DiDi, ves y despachas todo desde una interfaz, y al cierre concilias ventas sin fricción.",
+      "Tus clientes piden desde tu propio dominio (pedidos.turestaurante.com), tú despachas con tus repartidores y rastreas cada entrega por GPS en tiempo real. Sin comisiones de terceros y con la base de datos de clientes 100% tuya.",
     features: [
       {
-        title: "Todas tus apps en una",
-        text: "Rappi, Uber, DiDi y más, en un solo lugar.",
+        title: "Tu marca, tu dominio",
+        text: "Pedidos desde pedidos.turestaurante.com, sin competencia en la misma app.",
       },
       {
-        title: "Despacho ordenado",
-        text: "Cada pedido entra al mismo flujo hacia cocina.",
+        title: "GPS en tiempo real",
+        text: "Rastrea cada entrega y a cada repartidor al instante.",
       },
       {
-        title: "Conciliación al cierre",
-        text: "Cuadra ventas de agregadores sin pelear con varias pantallas.",
+        title: "Reparto propio",
+        text: "Gestiona tus motos y zonas de entrega desde un tablero.",
       },
       {
-        title: "Menos errores",
-        text: "Evitas pedidos perdidos o duplicados entre apps.",
+        title: "Clientes tuyos",
+        text: "Base de datos 100% tuya, con notificaciones por SMS y WhatsApp.",
       },
     ],
     benefits: [
-      "Menos caos en hora pico",
-      "Cierres de caja más rápidos",
-      "Cero pedidos perdidos",
+      "Sin comisiones de terceros",
+      "Clientes y datos 100% tuyos",
+      "Control total de cada entrega",
     ],
   },
   {
