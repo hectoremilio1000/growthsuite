@@ -137,8 +137,8 @@ export default function Home() {
           </div>
           <div className="fb-hero-visual">
             <img
-              src="/imagen_6.png"
-              alt="Growthsuite sincroniza pedidos e inventario en un solo tablero"
+              src="/hero-whatsapp-banner.png"
+              alt="Controla tu restaurante desde WhatsApp: POS, caja, cocina, delivery propio e inventario"
               className="fb-hero-visual-image"
             />
           </div>
