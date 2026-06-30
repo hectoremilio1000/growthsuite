@@ -33,7 +33,7 @@ export default function Document() {
               j.async=true;
               j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
               f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-M676V953');
+            })(window,document,'script','dataLayer','GTM-M3ZX7XW2');
           `,
           }}
         />
@@ -41,7 +41,7 @@ export default function Document() {
       <body>
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-M676V953"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M3ZX7XW2"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
