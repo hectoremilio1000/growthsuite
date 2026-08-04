@@ -107,13 +107,18 @@ export default function FoodbotNav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <span className="hidden md:inline-flex">
+          {/* Mismo breakpoint que .fb-nav-menu/.fb-mobile-toggle (900px, en
+              foodbot.css) — antes usaban el md: de Tailwind (768px), lo que
+              dejaba una franja (768-900px, tablets como iPad) donde salían
+              estos botones de escritorio A LA VEZ que el botón "Menú" móvil,
+              sin los links de navegación (esos sí se ocultaban a los 900px). */}
+          <span className="hidden min-[901px]:inline-flex">
             <Link href="/contacto" className="fb-button">
               AGENDAR DEMO
             </Link>
           </span>
           {APP_LINKS.length > 0 && (
-            <div className="fb-nav-dropdown hidden md:inline-flex">
+            <div className="fb-nav-dropdown hidden min-[901px]:inline-flex">
               <button
                 type="button"
                 className="fb-button"
