@@ -1,5 +1,5 @@
-import Head from "next/head";
 import NavBar from "../components/foodbot/NavBar";
+import Seo from "../components/Seo";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
 const uniquePlan = {
@@ -13,9 +13,11 @@ const uniquePlan = {
 export default function Precio() {
   return (
     <div>
-      <Head>
-        <title>Precio | Growthsuite</title>
-      </Head>
+      <Seo
+        title="Precio | Growthsuite desde $799 MXN al mes"
+        description="Un solo plan con todos los módulos de Growthsuite: Punto de Venta, WhatsApp, delivery propio, rewards y más, desde $799 MXN al mes."
+        path="/precio"
+      />
       <NavBar />
 
       <section className="fb-section">

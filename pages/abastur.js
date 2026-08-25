@@ -1,8 +1,8 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import NavBar from "../components/foodbot/NavBar";
 import BookingWidget from "../components/BookingWidget";
+import Seo from "../components/Seo";
 import { trackEvent } from "../lib/tracker";
 import styles from "../styles/Abastur.module.css";
 
@@ -172,20 +172,12 @@ export default function Abastur() {
 
   return (
     <div>
-      <Head>
-        <title>Oferta Abastur 2026: 15 días gratis + instalación | Growthsuite</title>
-        <meta
-          name="description"
-          content="Escaneaste el QR del stand de Growthsuite en Abastur 2026: obtén 15 días de prueba gratis y la instalación de tu Punto de Venta sin costo."
-        />
-        <meta property="og:title" content="Oferta Abastur 2026 | Growthsuite" />
-        <meta
-          property="og:description"
-          content="15 días de prueba gratis + instalación sin costo. Exclusivo para visitantes del stand Growthsuite en Abastur 2026."
-        />
-        <meta property="og:image" content="https://www.growthsuite.tech/growthsuite-logo-blue-1024.png" />
-        <meta name="robots" content="noindex" />
-      </Head>
+      <Seo
+        title="Oferta Abastur 2026: 15 días gratis + instalación | Growthsuite"
+        description="Escaneaste el QR del stand de Growthsuite en Abastur 2026: obtén 15 días de prueba gratis y la instalación de tu Punto de Venta sin costo."
+        path="/abastur"
+        noindex
+      />
 
       <NavBar />
 

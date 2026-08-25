@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../components/foodbot/NavBar";
+import Seo from "../components/Seo";
 
 const sections = [
   { id: "responsable", num: "01", title: "Responsable del tratamiento" },
@@ -23,13 +23,11 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
     <div>
-      <Head>
-        <title>Aviso de Privacidad | Growthsuite</title>
-        <meta
-          name="description"
-          content="Aviso de Privacidad Integral de Growthsuite. Conoce como protegemos tus datos personales."
-        />
-      </Head>
+      <Seo
+        title="Aviso de Privacidad | Growthsuite"
+        description="Aviso de Privacidad Integral de Growthsuite. Conoce como protegemos tus datos personales."
+        path="/privacy-policy"
+      />
 
       <NavBar />
 

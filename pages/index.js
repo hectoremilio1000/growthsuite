@@ -1,7 +1,7 @@
-import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
+import Seo from "../components/Seo";
 import { growthsuiteModules } from "../data/growthsuiteModules";
 
 /* Demo video — self-hosted en /public para reproducir con un solo click.
@@ -102,16 +102,16 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Growthsuite | Plataforma para restaurantes</title>
-        <meta
-          name="description"
-          content="Growthsuite reúne ventas, operación y lealtad para restaurantes en una sola plataforma."
-        />
-        <meta property="og:title" content="Growthsuite | Plataforma para restaurantes" />
-        <meta property="og:description" content="Growthsuite reúne ventas, operación y lealtad para restaurantes en una sola plataforma." />
-        <meta property="og:image" content="https://www.growthsuite.tech/growthsuite-logo-blue-1024.png" />
-      </Head>
+      <Seo
+        title="Growthsuite | POS para Restaurantes controlado desde WhatsApp"
+        description="Punto de Venta en la nube para restaurantes: controla pedidos, caja, inventario y delivery propio desde WhatsApp. Agenda una demo gratis."
+        path="/"
+        alternates={[
+          { hrefLang: "es-mx", path: "/" },
+          { hrefLang: "en", path: "/en" },
+          { hrefLang: "x-default", path: "/" },
+        ]}
+      />
 
       <NavBar />
 
