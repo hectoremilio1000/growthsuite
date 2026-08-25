@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../../components/foodbot/NavBar";
+import Seo, { SITE_URL, DEFAULT_OG_IMAGE } from "../../components/Seo";
 import { restaurantTypes } from "../../data/restaurantTypes";
 
 export async function getStaticPaths() {
@@ -29,10 +29,16 @@ function ImageSlot({ image, className }) {
 export default function RestaurantTypePage({ data }) {
   return (
     <div>
-      <Head>
-        <title>{data.metaTitle}</title>
-        <meta name="description" content={data.metaDescription} />
-      </Head>
+      <Seo
+        title={data.metaTitle}
+        description={data.metaDescription}
+        path={`/tipo-restaurante/${data.slug}`}
+        image={
+          data.hero?.image?.src
+            ? `${SITE_URL}${data.hero.image.src}`
+            : DEFAULT_OG_IMAGE
+        }
+      />
       <NavBar />
 
       {/* 1. Hero */}

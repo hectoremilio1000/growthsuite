@@ -1,10 +1,6 @@
-import NavBar from "./Navbar";
+import { useRouter } from "next/router";
 import FooterFinal from "./FooterFinal";
 import WhatsappButton from "./WhatsappButton";
-
-import { useRouter } from "next/router";
-import NavBarEn from "../components/NavBarEn/NavBarEn";
-import NavBarEs from "../components/NavBarEs/NavBarEs";
 
 /**
  * Rutas donde el botón flotante de WhatsApp NO se muestra.
@@ -17,22 +13,6 @@ const HIDE_WHATSAPP_FAB = ["/softrestaurant"];
 export default function Layout({ children }) {
   const { pathname } = useRouter();
   const showWhatsappFab = !HIDE_WHATSAPP_FAB.includes(pathname);
-
-  // const router = useRouter();
-  // const { locale } = router;
-
-  // let NavBarComponent;
-
-  // switch (locale) {
-  //     case 'en':
-  //         NavBarComponent = NavBarEn;
-  //         break;
-  //     case 'es':
-  //         NavBarComponent = NavBarEs;
-  //         break;
-  //     default:
-  //         NavBarComponent = NavBarEs;
-  // }
 
   return (
     <div className="flex flex-col min-h-screen">

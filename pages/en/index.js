@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../../components/foodbot/NavBar";
+import Seo from "../../components/Seo";
 
 const features = [
   {
@@ -43,9 +43,16 @@ const features = [
 export default function EnglishHome() {
   return (
     <div>
-      <Head>
-        <title>Growthsuite | Restaurant platform</title>
-      </Head>
+      <Seo
+        title="Growthsuite | Restaurant POS Platform run from WhatsApp"
+        description="Cloud point of sale (POS) for restaurants: orders, cash management, inventory and your own delivery, run from WhatsApp. Book a free demo."
+        path="/en"
+        alternates={[
+          { hrefLang: "es-mx", path: "/" },
+          { hrefLang: "en", path: "/en" },
+          { hrefLang: "x-default", path: "/" },
+        ]}
+      />
 
       <NavBar />
 
