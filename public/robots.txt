@@ -1,9 +1,11 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /manuales-de-procesos
+Disallow: /abastur
 
 # Host
-Host: https://lalloronacantina.com
+Host: https://www.growthsuite.com.mx
 
 # Sitemaps
-Sitemap: https://lalloronacantina.com/sitemap.xml
+Sitemap: https://www.growthsuite.com.mx/sitemap.xml

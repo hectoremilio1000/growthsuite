@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../../components/foodbot/NavBar";
+import Seo, { SITE_URL, DEFAULT_OG_IMAGE } from "../../components/Seo";
 import { growthsuiteModules } from "../../data/growthsuiteModules";
 
 export async function getStaticPaths() {
@@ -23,10 +23,16 @@ export default function ModuloPage({ moduleData }) {
 
   return (
     <div>
-      <Head>
-        <title>{moduleData.title} | GrowthSuite</title>
-        <meta name="description" content={moduleData.description} />
-      </Head>
+      <Seo
+        title={`${moduleData.title} para Restaurantes | Growthsuite`}
+        description={moduleData.description}
+        path={`/modulo/${moduleData.slug}`}
+        image={
+          moduleData.visualImage
+            ? `${SITE_URL}${moduleData.visualImage}`
+            : DEFAULT_OG_IMAGE
+        }
+      />
       <NavBar />
 
       {/* Hero */}

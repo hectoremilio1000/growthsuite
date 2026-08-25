@@ -1,6 +1,6 @@
-import Head from "next/head";
 import NavBar from "../components/foodbot/NavBar";
 import BookingWidget from "../components/BookingWidget";
+import Seo from "../components/Seo";
 
 const beneficios = [
   "Diagnóstico sin costo de tu operación actual.",
@@ -11,13 +11,11 @@ const beneficios = [
 export default function Contacto() {
   return (
     <div>
-      <Head>
-        <title>Contacto | Growthsuite</title>
-        <meta
-          name="description"
-          content="Agenda una demo con el equipo de Growthsuite. Te mostramos cómo operar tu restaurante desde WhatsApp."
-        />
-      </Head>
+      <Seo
+        title="Contacto | Agenda una demo gratis de Growthsuite"
+        description="Agenda una demo gratis con el equipo de Growthsuite y descubre cómo controlar tu restaurante desde WhatsApp con un Punto de Venta todo en uno."
+        path="/contacto"
+      />
 
       <NavBar />
 
