@@ -22,6 +22,16 @@ const APP_LINKS = [
   { label: "Caja", icon: "/brand/apps/pos-cash.svg", url: process.env.NEXT_PUBLIC_APP_CASH_URL || "" },
   { label: "Comandero", icon: "/brand/apps/pos-comandero.svg", url: process.env.NEXT_PUBLIC_APP_COMANDERO_URL || "" },
   { label: "Monitor de cocina", icon: "/brand/apps/pos-monitor.svg", url: process.env.NEXT_PUBLIC_APP_MONITOR_URL || "" },
+  {
+    label: "POS Centro",
+    icon: "/brand/apps/pos-centro.svg",
+    url: process.env.NEXT_PUBLIC_APP_CENTRO_URL || "https://pos-centro-front.vercel.app/",
+  },
+  {
+    label: "Repartidor",
+    icon: "/brand/apps/pos-courier.png",
+    url: process.env.NEXT_PUBLIC_APP_COURIER_URL || "https://poscourierfront.vercel.app/",
+  },
 ].filter((a) => a.url);
 
 export default function FoodbotNav() {
