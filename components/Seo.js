@@ -14,7 +14,10 @@ import Head from "next/head";
  * SITE_URL para armar canonical/og:url/hreflang absolutos.
  */
 export const SITE_URL = "https://www.growthsuite.com.mx";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/growthsuite-logo-blue-1024.png`;
+/* Card 1200x630 (el estándar de Open Graph) con el logo sobre blanco sólido.
+ * No se usa el PNG del logo tal cual: su transparencia se renderiza en negro
+ * en varios clientes de WhatsApp, y un cuadrado 1:1 lo recorta mal. */
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-growthsuite-1200x630.png`;
 
 export default function Seo({
   title,
