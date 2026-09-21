@@ -5,7 +5,10 @@ import Script from "next/script";
  * Un solo lugar para el dominio canónico: si algún día cambia, se cambia
  * aquí y no hay que perseguir og:image/og:url regados por el código. */
 const SITE_URL = "https://www.growthsuite.com.mx";
-const LOGO_URL = `${SITE_URL}/growthsuite-logo-blue-1024.png`;
+/* Logo cuadrado del JSON-LD de Organization: es el que Google puede mostrar
+ * en resultados de búsqueda, y va aparte del og:image de Seo.js (ese es el
+ * card 1200x630 de redes). Cuadrado porque se rinde como avatar. */
+const LOGO_URL = `${SITE_URL}/growthsuite-logo-1024.png`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
