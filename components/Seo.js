@@ -42,7 +42,9 @@ export default function Seo({
       {description && <meta property="og:description" content={description} />}
       <meta property="og:image" content={image} />
 
-      <meta name="twitter:card" content="summary_large_image" />
+      {/* twitter:card vive en _document.js: nunca cambia por página, y ahí
+       * lo heredan también las páginas que aún no usan <Seo>. Emitirlo en
+       * los dos lados sacaba el tag duplicado en el HTML final. */}
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
       <meta name="twitter:image" content={image} />
