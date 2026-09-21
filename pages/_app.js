@@ -46,6 +46,12 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      {/* El viewport va aquí y no en _document.js: Next inyecta su propio
+        * `width=device-width` y en _document salían dos tags. next/head
+        * deduplica por `name`, así que aquí queda uno solo. */}
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <AppContextProvider>
         <LayoutFinal>
           {/* <TikTokPixel pixelId={TIXTOK_PIXEL_ID} /> */}
