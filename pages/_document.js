@@ -5,7 +5,10 @@ import Script from "next/script";
  * Un solo lugar para el dominio canónico: si algún día cambia, se cambia
  * aquí y no hay que perseguir og:image/og:url regados por el código. */
 const SITE_URL = "https://www.growthsuite.com.mx";
-const LOGO_URL = `${SITE_URL}/growthsuite-logo-blue-1024.png`;
+/* Logo cuadrado del JSON-LD de Organization: es el que Google puede mostrar
+ * en resultados de búsqueda, y va aparte del og:image de Seo.js (ese es el
+ * card 1200x630 de redes). Cuadrado porque se rinde como avatar. */
+const LOGO_URL = `${SITE_URL}/growthsuite-logo-1024.png`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -45,7 +48,9 @@ export default function Document({ htmlLang = "es-MX" }) {
   return (
     <Html lang={htmlLang}>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* El viewport NO va aquí: Next inyecta su propio `width=device-width`
+         * por su cuenta y salían DOS tags en el HTML final. Vive en _app.js,
+         * donde next/head sí deduplica por `name`. */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/logo192.png" />
@@ -54,8 +59,13 @@ export default function Document({ htmlLang = "es-MX" }) {
         <meta name="theme-color" content="#0088ff" />
         {/* og:title/og:description/og:image/canonical/hreflang van en cada
          * página vía components/Seo.js (aplicado a todas las páginas reales)
-         * — aquí solo lo que NUNCA cambia por página, para no duplicar tags. */}
-        <meta property="og:type" content="website" />
+         * — aquí solo lo que NUNCA cambia por página, para no duplicar tags.
+         *
+         * og:type NO va aquí aunque lo parezca: Seo.js lo expone como prop
+         * `type` (una página puede ser "article"), así que sí cambia por
+         * página. Tenerlo en ambos lados sacaba dos og:type contradictorios
+         * en el HTML final. twitter:card sí se queda: nunca varía, y así lo
+         * conservan también las páginas que todavía no usan <Seo>. */}
         <meta property="og:site_name" content="Growthsuite" />
         <meta property="og:locale" content="es_MX" />
         <meta name="twitter:card" content="summary_large_image" />

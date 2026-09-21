@@ -1,7 +1,7 @@
-import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import NavBar from "../components/foodbot/NavBar";
+import Seo from "../components/Seo";
 import DemoChat from "../components/DemoChat";
 import { trackEvent } from "../lib/tracker";
 import { buildWhatsappUrl, CALENDLY_PATH, POS_QUESTION_MESSAGE } from "../lib/demoCtas";
@@ -35,19 +35,12 @@ export default function SoftRestaurant() {
 
   return (
     <div>
-      <Head>
-        <title>¿Usas Soft Restaurant? Ahora imagina poder hablar con él | GrowthSuite</title>
-        <meta
-          name="description"
-          content="Pregunta por ventas, productos y operación usando lenguaje normal. Prueba la demo interactiva de GrowthSuite."
-        />
-        <meta name="robots" content="noindex" />
-        <meta property="og:title" content="¿Usas Soft Restaurant? Ahora imagina poder hablar con él." />
-        <meta
-          property="og:description"
-          content="Pregunta por ventas, productos y operación usando lenguaje normal."
-        />
-      </Head>
+      <Seo
+        title="¿Usas Soft Restaurant? Ahora imagina poder hablar con él | GrowthSuite"
+        description="Pregunta por ventas, productos y operación usando lenguaje normal. Prueba la demo interactiva de GrowthSuite."
+        path="/softrestaurant"
+        noindex
+      />
 
       <NavBar />
 

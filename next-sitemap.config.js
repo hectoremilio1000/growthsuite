@@ -31,6 +31,10 @@ module.exports = {
     "/plans",
     "/prueba",
     "/pruebagratis",
+    // /softrestaurant: landing de campaña, ya marcada noindex en la página.
+    // Estaba saliendo en el sitemap pese al noindex — contradicción que le
+    // dice a Google "indexa esto" y "no indexes esto" a la vez.
+    "/softrestaurant",
     "/terms_service",
   ],
   robotsTxtOptions: {
