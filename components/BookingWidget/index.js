@@ -8,6 +8,36 @@ import { buildBookingWidgetUrl } from "../../lib/tracker";
  *
  * Auto-redimensiona el iframe escuchando los mensajes `widget_height` que
  * postea el widget vía window.postMessage. Sin scroll interno.
+ *
+ * ── Qué publica al dataLayer ──────────────────────────────────────────────
+ * Un solo evento, `booking_completada`, cuando el backend YA confirmó la
+ * reserva (el widget sólo postea `booking_completed` después de que
+ * `POST /w/:slug/book` resolvió). GTM lo convierte en el `Schedule` de Meta.
+ *
+ * Tres cosas que este componente garantiza y que NO son gratis:
+ *
+ *   1. ORIGEN. `window.message` lo puede emitir CUALQUIER página: otra pestaña,
+ *      un iframe de terceros, una extensión. El campo `source: 'booking-widget'`
+ *      no prueba nada — va dentro del mensaje y cualquiera lo escribe. Por eso
+ *      se valida el `event.origin` contra el dominio real del widget Y el
+ *      `event.source` contra la ventana de NUESTRO iframe. Sin eso, un tercero
+ *      podría inyectar conversiones falsas en la cuenta de anuncios.
+ *
+ *   2. UNA CONVERSIÓN POR RESERVA. Que el mensaje salga después de un `await`
+ *      no impide que llegue dos veces: React puede re-montar, el widget puede
+ *      reintentar, y `postMessage` no tiene entrega exactamente-una-vez. Se
+ *      deduplica por código de confirmación en `sessionStorage`.
+ *
+ *   3. EL CÓDIGO DE CONFIRMACIÓN NO SALE DE AQUÍ. `confirmationCode` es una
+ *      LLAVE: con él se puede consultar y CANCELAR la reserva
+ *      (`GET /api/w/:slug/reservation/:code` y `.../cancel`). No se publica al
+ *      dataLayer —que cualquier script de la página puede leer— ni se manda a
+ *      Meta. Lo que viaja es `booking_ref`, un identificador ALEATORIO sin
+ *      relación con la reserva.
+ *
+ *      Y no, hashear el código no bastaba: son 8 caracteres de un alfabeto de
+ *      32 (~10¹² combinaciones), que se recorren por fuerza bruta en minutos.
+ *      Un hash habría parecido opaco sin serlo.
  */
 const WIDGET_BASE_URL =
   process.env.NEXT_PUBLIC_BOOKING_WIDGET_URL || "http://localhost:5174";
@@ -18,6 +48,60 @@ const DEFAULT_SLUG = "growthsuite-demos";
  * postMessage y el iframe se ajusta a eso. */
 const MIN_HEIGHT = 400;
 const MAX_HEIGHT = 1800;
+
+/** Dónde se recuerdan las reservas ya reportadas, para no contarlas dos veces. */
+const DEDUPE_KEY = "gs_booking_reported";
+
+/** El origen del que DEBEN venir los mensajes. Null si la URL es inservible. */
+function expectedOrigin() {
+  try {
+    return new URL(WIDGET_BASE_URL).origin;
+  } catch {
+    return null;
+  }
+}
+
+/** Identificador opaco y aleatorio. No se deriva del código de confirmación. */
+function newOpaqueRef() {
+  try {
+    if (typeof crypto !== "undefined" && crypto.randomUUID) {
+      return crypto.randomUUID();
+    }
+    if (typeof crypto !== "undefined" && crypto.getRandomValues) {
+      const b = new Uint8Array(16);
+      crypto.getRandomValues(b);
+      return Array.from(b, (x) => x.toString(16).padStart(2, "0")).join("");
+    }
+  } catch {
+    /* sigue al fallback */
+  }
+  return `r${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
+}
+
+/**
+ * Registra la reserva y dice si es la PRIMERA vez que se ve.
+ * El código vive sólo en sessionStorage; nunca sale de este módulo.
+ */
+function claimBooking(confirmationCode) {
+  let seen = {};
+  try {
+    seen = JSON.parse(sessionStorage.getItem(DEDUPE_KEY) || "{}") || {};
+  } catch {
+    seen = {};
+  }
+
+  if (seen[confirmationCode]) return { isFirst: false, ref: seen[confirmationCode] };
+
+  const ref = newOpaqueRef();
+  seen[confirmationCode] = ref;
+  try {
+    sessionStorage.setItem(DEDUPE_KEY, JSON.stringify(seen));
+  } catch {
+    /* Modo privado o almacenamiento lleno: se reporta igual. Preferimos una
+     * conversión repetida a perder la única que hubo. */
+  }
+  return { isFirst: true, ref };
+}
 
 export default function BookingWidget({
   slug = DEFAULT_SLUG,
@@ -38,10 +122,18 @@ export default function BookingWidget({
 
   /* Listen for height updates from the embedded widget (cross-origin postMessage) */
   useEffect(() => {
+    const origin = expectedOrigin();
+
     function handleMessage(event) {
+      /* ── Quién manda el mensaje: las dos comprobaciones ───────────────── */
+      if (!origin || event.origin !== origin) return;
+      if (!iframeRef.current || event.source !== iframeRef.current.contentWindow) return;
+
+      /* ── Qué forma tiene ──────────────────────────────────────────────── */
       const data = event?.data;
       if (!data || typeof data !== "object") return;
       if (data.source !== "booking-widget") return;
+      if (typeof data.type !== "string") return;
 
       if (data.type === "widget_height" && typeof data.height === "number") {
         /* SIN buffer +N — esa adición creaba un loop con el body 100% */
@@ -50,16 +142,29 @@ export default function BookingWidget({
       }
 
       if (data.type === "booking_completed") {
+        const code = data.confirmationCode;
+        /* Sin código no hay reserva confirmada que reportar ni con qué deduplicar. */
+        if (typeof code !== "string" || code.trim() === "") return;
+
+        const { isFirst, ref } = claimBooking(code.trim());
+        if (!isFirst) return; /* mensaje repetido: una reserva, una conversión */
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "booking_completada",
-          confirmationCode: data.confirmationCode || null,
+          /* Opaco y aleatorio. NUNCA el confirmationCode. */
+          booking_ref: ref,
+          /* Contexto para que GTM distinga las demos de GrowthSuite de
+           * cualquier otra reserva que este componente llegue a servir. */
+          booking_slug: slug,
+          booking_type: eventTypeSlug || null,
         });
       }
     }
+
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, []);
+  }, [slug, eventTypeSlug]);
 
   if (!src) {
     return (
