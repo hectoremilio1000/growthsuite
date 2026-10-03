@@ -49,9 +49,6 @@ const DEFAULT_SLUG = "growthsuite-demos";
 const MIN_HEIGHT = 400;
 const MAX_HEIGHT = 1800;
 
-/** Dónde se recuerdan las reservas ya reportadas, para no contarlas dos veces. */
-const DEDUPE_KEY = "gs_booking_reported";
-
 /** El origen del que DEBEN venir los mensajes. Null si la URL es inservible. */
 function expectedOrigin() {
   try {
@@ -78,27 +75,70 @@ function newOpaqueRef() {
   return `r${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
 }
 
+/** Dónde se recuerdan las reservas ya reportadas, para no contarlas dos veces. */
+const DEDUPE_KEY = "gs_booking_reported";
+
 /**
- * Registra la reserva y dice si es la PRIMERA vez que se ve.
- * El código vive sólo en sessionStorage; nunca sale de este módulo.
+ * Memoria del proceso. Es la PRIMERA línea de defensa y la única que no puede
+ * fallar: `sessionStorage` lanza excepción en modo privado de algunos
+ * navegadores, con las cookies de terceros bloqueadas o si la cuota está llena.
+ * Si la deduplicación dependiera sólo del almacenamiento, en esos casos no
+ * habría deduplicación en absoluto.
+ */
+const reportedInMemory = new Map();
+
+/**
+ * ALCANCE DE LA DEDUPLICACIÓN — lo que cubre y lo que no.
+ *
+ *   Cubre  · mensajes repetidos en la misma página (re-montaje de React,
+ *            reintento del widget, doble entrega de postMessage) → Map en memoria.
+ *          · recargas y navegación dentro de la MISMA pestaña → sessionStorage.
+ *
+ *   NO cubre · otra pestaña, otro navegador u otro dispositivo: sessionStorage
+ *              es por pestaña y por origen. En la práctica no importa, porque
+ *              el mensaje sólo nace de un `POST /book` exitoso: para que llegue
+ *              en otra pestaña hay que volver a reservar, y eso SÍ es otra
+ *              conversión.
+ *            · el cierre de la pestaña borra sessionStorage; el Map muere con
+ *              la página. A partir de ahí la misma reserva volvería a contarse
+ *              si alguien reprodujera el mensaje a mano.
+ *
+ * Si el almacenamiento no está disponible, el Map en memoria sigue activo y la
+ * deduplicación funciona mientras la página viva. Se degrada, no se apaga.
  */
 function claimBooking(confirmationCode) {
+  /* 1 · memoria: siempre disponible */
+  if (reportedInMemory.has(confirmationCode)) {
+    return { isFirst: false, ref: reportedInMemory.get(confirmationCode) };
+  }
+
+  /* 2 · sessionStorage: extiende la memoria a recargas de la misma pestaña */
   let seen = {};
+  let storageOk = true;
   try {
     seen = JSON.parse(sessionStorage.getItem(DEDUPE_KEY) || "{}") || {};
   } catch {
+    storageOk = false;
     seen = {};
   }
 
-  if (seen[confirmationCode]) return { isFirst: false, ref: seen[confirmationCode] };
+  if (seen[confirmationCode]) {
+    /* Se vuelve a sembrar la memoria para que el MISMO booking_ref sobreviva
+     * al resto de la sesión sin volver a leer el almacenamiento. */
+    reportedInMemory.set(confirmationCode, seen[confirmationCode]);
+    return { isFirst: false, ref: seen[confirmationCode] };
+  }
 
   const ref = newOpaqueRef();
-  seen[confirmationCode] = ref;
-  try {
-    sessionStorage.setItem(DEDUPE_KEY, JSON.stringify(seen));
-  } catch {
-    /* Modo privado o almacenamiento lleno: se reporta igual. Preferimos una
-     * conversión repetida a perder la única que hubo. */
+  reportedInMemory.set(confirmationCode, ref);
+
+  if (storageOk) {
+    seen[confirmationCode] = ref;
+    try {
+      sessionStorage.setItem(DEDUPE_KEY, JSON.stringify(seen));
+    } catch {
+      /* Cuota llena: la memoria ya tiene el ref, la dedup sigue viva en esta página. */
+    }
   }
   return { isFirst: true, ref };
 }
