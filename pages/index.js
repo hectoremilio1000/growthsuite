@@ -3,6 +3,7 @@ import { useState } from "react";
 import NavBar from "../components/foodbot/NavBar";
 import Seo from "../components/Seo";
 import { growthsuiteModules } from "../data/growthsuiteModules";
+import ReportSearchHero from "../components/RestaurantReport/ReportSearchHero";
 
 /* Demo video — self-hosted en /public para reproducir con un solo click.
  * El MP4 (H.264) y la portada viajan con el deploy de Vercel. */
@@ -118,7 +119,7 @@ export default function Home() {
       <section className="fb-hero">
         <div className="fb-container fb-hero-grid">
           <div>
-            <span className="fb-pill">Growthsuite</span>
+            <span className="fb-pill">Mira cómo lo hacemos</span>
             <h1 className="heading-font mt-6 text-4xl font-semibold leading-tight md:text-5xl">
               Por primera vez, controla tu restaurante desde WhatsApp
             </h1>
@@ -242,6 +243,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Diagnóstico gratis — el gancho de "te garantizamos vender más".
+          Va entre los logos (prueba social) y los módulos (el producto): quien ya vio
+          que otros confían, entra a ver su propio número antes de leer features. */}
+      <ReportSearchHero />
 
       {growthsuiteModules.map((feature, index) => (
         <section
