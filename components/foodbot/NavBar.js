@@ -2,10 +2,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { growthsuiteModules } from "../../data/growthsuiteModules";
 
-const productLinks = growthsuiteModules.map((module) => ({
-  label: module.title,
-  href: `/modulo/${module.slug}`,
-}));
+/* Los dos menús salen del MISMO catálogo, filtrado por plan: agregar un módulo mañana
+ * lo mete solo en el menú que le toca. Nunca escribir estas listas a mano. */
+const asLinks = (plan) =>
+  growthsuiteModules
+    .filter((module) => module.plan === plan)
+    .map((module) => ({ label: module.title, href: `/modulo/${module.slug}` }));
+
+const productLinks = asLinks("basico");
+const serviceLinks = asLinks("impulso");
 
 const restaurantLinks = [
   { label: "Fast casual", href: "/tipo-restaurante/fast-casual" },
@@ -38,6 +43,7 @@ export default function FoodbotNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroups, setMobileGroups] = useState({
     product: false,
+    service: false,
     restaurant: false,
     apps: false,
   });
@@ -91,6 +97,18 @@ export default function FoodbotNav() {
               ))}
             </div>
           </div>
+          <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
+            <button className="fb-nav-link" type="button">
+              Servicios
+            </button>
+            <div className="fb-nav-panel" onClick={closeDropdownOnLink}>
+              {serviceLinks.map((item) => (
+                <Link key={item.label} href={item.href}>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="fb-nav-dropdown" onMouseLeave={reopenDropdown}>
             <button className="fb-nav-link" type="button">
@@ -111,8 +129,8 @@ export default function FoodbotNav() {
           <Link href="/precio" className="fb-nav-link">
             Precio
           </Link>
-          <Link href="/privacy-policy" className="fb-nav-link">
-            Aviso de Privacidad
+          <Link href="/blog" className="fb-nav-link">
+            Blog
           </Link>
         </nav>
 
@@ -254,6 +272,38 @@ export default function FoodbotNav() {
             <button
               type="button"
               className={`fb-mobile-accordion-toggle ${
+                mobileGroups.service ? "is-open" : ""
+              }`}
+              onClick={() => toggleMobileGroup("service")}
+              aria-expanded={mobileGroups.service}
+              aria-controls="mobile-service-links"
+            >
+              <span>Servicios</span>
+              <span className="fb-mobile-accordion-icon" aria-hidden="true">
+                {mobileGroups.service ? "-" : "+"}
+              </span>
+            </button>
+            <div
+              id="mobile-service-links"
+              className={`fb-mobile-accordion-panel ${
+                mobileGroups.service ? "is-open" : ""
+              }`}
+            >
+              {serviceLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="fb-mobile-link fb-mobile-link--sub"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="fb-mobile-group">
+            <button
+              type="button"
+              className={`fb-mobile-accordion-toggle ${
                 mobileGroups.restaurant ? "is-open" : ""
               }`}
               onClick={() => toggleMobileGroup("restaurant")}
@@ -287,6 +337,9 @@ export default function FoodbotNav() {
           </Link>
           <Link href="/precio" className="fb-mobile-link">
             Precio
+          </Link>
+          <Link href="/blog" className="fb-mobile-link">
+            Blog
           </Link>
           <Link href="/privacy-policy" className="fb-mobile-link">
             Aviso de Privacidad
