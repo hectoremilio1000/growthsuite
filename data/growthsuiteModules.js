@@ -2,6 +2,7 @@ export const growthsuiteModules = [
   {
     id: "punto-de-venta",
     slug: "punto-de-venta",
+    plan: "basico",
     title: "Punto de Venta",
     kicker: "¡El corazón de la gestión de tu restaurante 💚 !",
     description:
@@ -37,6 +38,7 @@ export const growthsuiteModules = [
   {
     id: "control-asistente-whatsapp",
     slug: "control-asistente-whatsapp",
+    plan: "basico",
     title: "Control + Asistente por WhatsApp",
     kicker: "Gestiona y decide más rápido desde un solo chat",
     description:
@@ -74,6 +76,7 @@ export const growthsuiteModules = [
   {
     id: "central-de-pedidos",
     slug: "central-de-pedidos",
+    plan: "basico",
     title: "Delivery propio",
     kicker: "Tu marca. Tu dominio. Tus clientes.",
     description:
@@ -111,6 +114,7 @@ export const growthsuiteModules = [
   {
     id: "Monitor-de-comandas",
     slug: "monitor-de-comandas",
+    plan: "basico",
     title: "Monitor de comandas",
     kicker: "Adiós papel, hola velocidad",
     description:
@@ -142,6 +146,7 @@ export const growthsuiteModules = [
   {
     id: "tableta-de-órdenes",
     slug: "tableta-de-ordenes",
+    plan: "basico",
     title: "Tableta de órdenes",
     kicker: "Pedidos claros, equipos ágiles",
     description:
@@ -177,6 +182,7 @@ export const growthsuiteModules = [
   {
     id: "agente-ai-whatsapp",
     slug: "pedidos-automaticos-ia",
+    plan: "basico",
     title: "Pedidos automáticos con IA",
     kicker: "Del WhatsApp a la cocina, sin fricción",
     description:
@@ -214,6 +220,7 @@ export const growthsuiteModules = [
   {
     id: "rewards",
     slug: "rewards",
+    plan: "basico",
     title: "Rewards",
     kicker: "Lealtad personalizada",
     description:
@@ -249,6 +256,7 @@ export const growthsuiteModules = [
   {
     id: "qr-en-ticket",
     slug: "qr-en-la-cuenta",
+    plan: "basico",
     title: "QR en la cuenta",
     kicker: "Ver tu consumo y calificar, al instante",
     description:
@@ -287,6 +295,7 @@ export const growthsuiteModules = [
   {
     id: "factura-inteligente",
     slug: "facturacion-electronica",
+    plan: "basico",
     title: "Facturación electrónica",
     kicker: "Factura a tus clientes en minutos",
     description:
@@ -317,6 +326,158 @@ export const growthsuiteModules = [
       "Menos trabajo administrativo",
       "Clientes felices",
       "Cumplimiento sin estrés",
+    ],
+  },
+  {
+    id: "pagina-web",
+    slug: "pagina-web",
+    plan: "impulso",
+    title: "Página web",
+    kicker: "Tu restaurante, encontrable y con tu propia dirección",
+    description:
+      "Un sitio hecho para restaurantes: menú siempre al día, botón de pedido y reserva, y las fotos que dan hambre. Con tu dominio, no en el perfil de un tercero.",
+    chips: ["Tu dominio", "Menú al día", "Pedidos directos"],
+    visualImage: "/pagina-web-modulo.png",
+    visualAlt:
+      "Sitio web del restaurante con menú, botón de ordenar y de reservar, visto en computadora y celular",
+    detail:
+      "Tu sitio se conecta al mismo menú del Punto de Venta: cambias un precio adentro y se actualiza afuera, sin llamar a nadie. Lleva botón de pedido directo y de reserva, se ve bien en celular —que es donde te buscan— y está preparado para que Google te encuentre cuando alguien busca dónde comer cerca.",
+    features: [
+      {
+        title: "Tu menú, sin doble captura",
+        text: "El mismo menú del POS se publica en la web. Un cambio, un lugar.",
+      },
+      {
+        title: "Pedidos que no pagan comisión",
+        text: "El botón de ordenar lleva a tu canal, no al de una app de reparto.",
+      },
+      {
+        title: "Aparece en Google",
+        text: "Estructura pensada para búsquedas locales: 'restaurante cerca de mí'.",
+      },
+      {
+        title: "Se ve bien en celular",
+        text: "Ahí te buscan. El sitio se arma primero para esa pantalla.",
+      },
+    ],
+    benefits: [
+      "Clientes que llegan solos",
+      "Menos comisiones a terceros",
+      "Una dirección que es tuya",
+    ],
+  },
+  {
+    id: "reservaciones",
+    slug: "reservaciones",
+    plan: "impulso",
+    title: "Reservaciones",
+    kicker: "Llena las mesas antes de que abran",
+    description:
+      "Tus clientes reservan solos, a la hora que quieran, sin llamar. Tú ves la noche completa antes de que llegue el primero.",
+    chips: ["Sin llamadas", "Confirmación sola", "Menos mesas vacías"],
+    visualImage: "/reservaciones-modulo.png",
+    visualAlt:
+      "Widget de reservaciones incrustado en la web del restaurante y el panel de POS Admin donde se administran",
+    detail:
+      "La reserva entra desde tu página, tu WhatsApp o tu perfil, y cae directo en la agenda del restaurante. El cliente recibe su confirmación y su recordatorio sin que nadie los mande a mano, y el anfitrión abre el turno sabiendo cuántas mesas están comprometidas y a qué hora.",
+    features: [
+      {
+        title: "Reserva sin llamar",
+        text: "El cliente elige día, hora y personas desde su teléfono.",
+      },
+      {
+        title: "Confirmación y recordatorio",
+        text: "Se mandan solos. Menos gente que reserva y no llega.",
+      },
+      {
+        title: "La noche, de un vistazo",
+        text: "El anfitrión ve las mesas comprometidas antes de abrir.",
+      },
+      {
+        title: "Conectado a tus mesas",
+        text: "La reserva sabe qué mesas existen y cuántas personas caben.",
+      },
+    ],
+    benefits: [
+      "Menos mesas vacías",
+      "Menos llamadas en hora pico",
+      "Servicio preparado de antemano",
+    ],
+  },
+  {
+    id: "marketing",
+    slug: "marketing",
+    plan: "impulso",
+    title: "Marketing",
+    kicker: "Que te conozcan los que están a la vuelta",
+    description:
+      "Campañas, redes y promociones pensadas para llenar tu restaurante — no para juntar likes. Con el número de ventas al lado, para saber si funcionó.",
+    chips: ["Campañas", "Redes", "Promos que venden"],
+    visualImage: "/marketing-modulo.png",
+    visualAlt:
+      "Campañas de marketing para restaurante conectadas a las ventas del punto de venta",
+    detail:
+      "Nos encargamos de la publicidad que trae gente a la mesa: anuncios a quienes viven o trabajan cerca, contenido para tus redes, y promociones armadas con lo que ya sabemos de tus ventas. Como el POS y el marketing viven en el mismo lugar, se puede ver qué campaña movió el ticket promedio y cuál no.",
+    features: [
+      {
+        title: "Anuncios a quien está cerca",
+        text: "Se le habla a quien puede llegar caminando o en 10 minutos.",
+      },
+      {
+        title: "Tus redes, atendidas",
+        text: "Contenido constante, sin que tú tengas que inventarlo cada semana.",
+      },
+      {
+        title: "Promos con cabeza",
+        text: "Se arman con tus productos y tus horas flojas, no al azar.",
+      },
+      {
+        title: "Se mide contra ventas",
+        text: "La campaña se juzga con el ticket y las cuentas, no con likes.",
+      },
+    ],
+    benefits: [
+      "Más gente en horas flojas",
+      "Promociones que sí dejan",
+      "Saber qué publicidad sirvió",
+    ],
+  },
+  {
+    id: "recursos-humanos",
+    slug: "recursos-humanos",
+    plan: "impulso",
+    title: "Recursos humanos",
+    kicker: "El equipo completo, sin que se te vaya el día en eso",
+    description:
+      "Reclutamiento, contratos, asistencia y nómina del personal de restaurante. Lo que más rota, atendido por quien sabe cómo rota.",
+    chips: ["Reclutamiento", "Asistencia", "Nómina"],
+    visualImage: "/recursos-humanos-modulo.png",
+    visualAlt:
+      "Reclutamiento, asistencia y nómina del equipo del restaurante desde el mismo sistema",
+    detail:
+      "Buscamos y filtramos meseros, cocineros y cajeros, dejamos los contratos en orden, y la asistencia se lleva desde el mismo sistema donde ya operas: quién llegó, quién llegó tarde, cuántas horas trabajó. Esa misma información alimenta la nómina, así que nadie recaptura nada.",
+    features: [
+      {
+        title: "Reclutamiento de piso y cocina",
+        text: "Perfiles filtrados para restaurante, no una bolsa de trabajo genérica.",
+      },
+      {
+        title: "Asistencia real",
+        text: "Entradas y salidas desde el POS: retardos y horas sin hoja de papel.",
+      },
+      {
+        title: "Nómina sin recaptura",
+        text: "Las horas trabajadas ya están en el sistema. La nómina sale de ahí.",
+      },
+      {
+        title: "Contratos en orden",
+        text: "Documentación al día para cada persona del equipo.",
+      },
+    ],
+    benefits: [
+      "Menos rotación sorpresiva",
+      "Nómina sin errores",
+      "Días que no se van en papeleo",
     ],
   },
 ];
