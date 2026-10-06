@@ -13,11 +13,11 @@ module.exports = {
   // duplicado, y por eso tampoco deben aparecer en el sitemap como si
   // fueran URLs propias a indexar.
   exclude: [
+    "/reporte-ai/*",
     "/manuales-de-procesos",
     "/impacto-resultados",
     "/indicadores-kpis",
     "/abastur",
-    "/blog",
     "/casosexito",
     "/casosexitos/*",
     "/comolohacemos",
