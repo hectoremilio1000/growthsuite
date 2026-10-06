@@ -17,7 +17,6 @@ module.exports = {
     "/impacto-resultados",
     "/indicadores-kpis",
     "/abastur",
-    "/blog",
     "/casosexito",
     "/casosexitos/*",
     "/comolohacemos",
