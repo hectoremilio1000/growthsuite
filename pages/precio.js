@@ -57,6 +57,7 @@ export default function Precio() {
 
                   <p className="mt-5 text-4xl font-semibold text-primary">
                     {plan.priceLabel}
+                    {plan.priceFootnote && <sup className="text-xl">*</sup>}
                     {plan.period && (
                       <span className="ml-2 text-sm font-normal text-slate-500">
                         MXN / {plan.period}
@@ -86,6 +87,15 @@ export default function Precio() {
                   </ul>
 
                   <p className="mt-4 text-xs text-slate-500">{plan.note}</p>
+
+                  {plan.monthlyPriceLabel && (
+                    <p className="mt-3 text-sm text-slate-500">
+                      Mes a mes: {plan.monthlyPriceLabel} MXN / {plan.period}
+                    </p>
+                  )}
+                  {plan.priceFootnote && (
+                    <p className="mt-1 text-sm text-slate-400">*{plan.priceFootnote}</p>
+                  )}
 
                   <Link href={plan.ctaHref} className="fb-button mt-5 no-underline">
                     {plan.ctaLabel}
