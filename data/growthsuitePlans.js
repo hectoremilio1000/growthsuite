@@ -22,6 +22,9 @@ export const growthsuitePlans = [
     price: 799,
     priceLabel: "$799",
     period: "mes",
+    // El $799 es el mensual con pago anual; mes a mes cuesta más. Se pinta en chico bajo el precio.
+    monthlyPriceLabel: "$1,299",
+    priceFootnote: "Precio mensual pagando el año",
     includesPlanId: null,
     features: asFeatures(modulesOf("basico")),
     note: `${modulesOf("basico").length} módulos de operación`,
