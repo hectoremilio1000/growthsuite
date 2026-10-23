@@ -445,7 +445,7 @@ export const growthsuiteModules = [
   {
     id: "recursos-humanos",
     slug: "recursos-humanos",
-    plan: "impulso",
+    plan: "empresas",
     title: "Recursos humanos",
     kicker: "El equipo completo, sin que se te vaya el día en eso",
     description:

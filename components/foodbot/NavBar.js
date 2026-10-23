@@ -4,13 +4,13 @@ import { growthsuiteModules } from "../../data/growthsuiteModules";
 
 /* Los dos menús salen del MISMO catálogo, filtrado por plan: agregar un módulo mañana
  * lo mete solo en el menú que le toca. Nunca escribir estas listas a mano. */
-const asLinks = (plan) =>
+const asLinks = (...plans) =>
   growthsuiteModules
-    .filter((module) => module.plan === plan)
+    .filter((module) => plans.includes(module.plan))
     .map((module) => ({ label: module.title, href: `/modulo/${module.slug}` }));
 
 const productLinks = asLinks("basico");
-const serviceLinks = asLinks("impulso");
+const serviceLinks = asLinks("impulso", "empresas");
 
 const restaurantLinks = [
   { label: "Fast casual", href: "/tipo-restaurante/fast-casual" },

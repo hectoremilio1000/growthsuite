@@ -55,6 +55,7 @@ export const growthsuitePlans = [
     period: null,
     includesPlanId: "impulso",
     features: [
+      ...asFeatures(modulesOf("empresas")),
       { label: "Varias sucursales en un solo tablero" },
       { label: "Integraciones con tus sistemas" },
       { label: "Acompañamiento dedicado" },
