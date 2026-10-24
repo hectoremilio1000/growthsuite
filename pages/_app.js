@@ -34,9 +34,22 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   // Pageview en cada cambio de ruta
+  //
+  // Son DOS destinos y hacen cosas distintas:
+  //   · trackPageview  → nuestro pos_tracking_api (atribución propia).
+  //   · pageview       → empuja { event: 'pageview' } al dataLayer de GTM.
+  //
+  // El segundo faltaba. Next navega del lado del cliente, así que el disparador
+  // "All Pages" de GTM —que corre al cargar el contenedor— no se vuelve a
+  // ejecutar: medíamos la primera página y perdíamos todas las demás.
+  //
+  // No duplica la primera vista: `routeChangeComplete` NO corre en la carga
+  // inicial, que es justo cuando dispara "All Pages". Entrada directa = 1,
+  // cada navegación real = 1.
   useEffect(() => {
     const handleRouteChange = (url) => {
       trackPageview({ event_name: "page_view", landing_page: url });
+      pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
