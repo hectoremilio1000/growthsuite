@@ -47,21 +47,35 @@ export const growthsuitePlans = [
     highlight: true,
   },
   {
-    id: "empresas",
-    name: "Empresas",
-    tagline: "A la medida para cadenas y grupos",
-    price: null,
-    priceLabel: "A cotizar",
-    period: null,
+    id: "talento",
+    name: "Impulso + Talento",
+    tagline: "Haz crecer tu restaurante y encuentra a tu próximo equipo",
+    price: 6999,
+    priceLabel: "$6,999",
+    period: "mes",
     includesPlanId: "impulso",
-    features: [
-      ...asFeatures(modulesOf("empresas")),
-      { label: "Varias sucursales en un solo tablero" },
-      { label: "Integraciones con tus sistemas" },
-      { label: "Acompañamiento dedicado" },
+    features: asFeatures(modulesOf("talento")),
+    // Qué incluye una búsqueda. El precio sólo es rentable con estos límites a la vista.
+    pasos: [
+      ["Definir la vacante", "Puesto, sueldo, propinas, horario y ubicación."],
+      ["Preparar y publicar los anuncios", "Imágenes, textos y recepción de solicitudes."],
+      [
+        "Atender y revisar candidatos",
+        "Confirmar que conocen las condiciones y cumplen los requisitos básicos acordados.",
+      ],
+      ["Coordinar entrevistas", "Mandar ubicación, confirmar asistencia y enviar recordatorios."],
+      [
+        "Dar seguimiento",
+        "Registrar quién asistió, quién interesa y quién fue contratado. El restaurante entrevista y toma la decisión final.",
+      ],
     ],
-    note: "Precio según sucursales y alcance",
-    ctaLabel: "Hablemos",
+    limites:
+      "Cada búsqueda corresponde a una plaza operativa —mesero, cocinero, ayudante, cajero o similar— durante un periodo de hasta 30 días. Gerentes, puestos especializados y sucursales adicionales se cotizan aparte. No garantizamos contrataciones ni asistencia a las entrevistas.",
+    note: "Hasta 2 búsquedas de personal operativo al mes, para una sucursal.",
+    fineprint: "Este precio ya incluye el plan Impulso. Inversión en anuncios por separado.",
+    // Talento sin marketing, encima del Básico.
+    addonLabel: "¿Sólo Básico + Talento? $2,999 MXN / mes.",
+    ctaLabel: "Quiero encontrar personal",
     ctaHref: "/contacto",
     highlight: false,
   },
