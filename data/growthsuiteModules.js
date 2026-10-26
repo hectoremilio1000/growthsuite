@@ -731,7 +731,7 @@ export const growthsuiteModules = [
       {
         src: "/talento/asistencia-detalle.webp",
         srcSm: "/talento/asistencia-detalle-800.webp",
-        alt: "Checador con teclado numérico para registrar la entrada o salida con PIN",
+        alt: "Checador con teclado numérico para registrar la entrada o salida con un PIN de 6 dígitos",
         caption: "El checador: cada persona registra su entrada y salida con su PIN.",
       },
     ],
