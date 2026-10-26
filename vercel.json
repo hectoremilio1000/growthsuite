@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/modulo/recursos-humanos",
+      "destination": "/modulo/reclutamiento",
+      "permanent": true
+    }
+  ]
+}

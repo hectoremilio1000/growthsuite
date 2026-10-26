@@ -10,7 +10,7 @@ const asLinks = (...plans) =>
     .map((module) => ({ label: module.title, href: `/modulo/${module.slug}` }));
 
 const productLinks = asLinks("basico");
-const serviceLinks = asLinks("impulso", "empresas");
+const serviceLinks = asLinks("impulso", "talento");
 
 const restaurantLinks = [
   { label: "Fast casual", href: "/tipo-restaurante/fast-casual" },
