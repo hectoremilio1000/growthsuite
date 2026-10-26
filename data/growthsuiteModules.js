@@ -443,41 +443,302 @@ export const growthsuiteModules = [
     ],
   },
   {
-    id: "recursos-humanos",
-    slug: "recursos-humanos",
-    plan: "empresas",
-    title: "Recursos humanos",
-    kicker: "El equipo completo, sin que se te vaya el día en eso",
+    id: "reclutamiento",
+    slug: "reclutamiento",
+    plan: "talento",
+    title: "Reclutamiento",
+    kicker: "Buscamos candidatos, tú eliges a quién contratar",
     description:
-      "Reclutamiento, contratos, asistencia y nómina del personal de restaurante. Lo que más rota, atendido por quien sabe cómo rota.",
-    chips: ["Reclutamiento", "Asistencia", "Nómina"],
-    visualImage: "/recursos-humanos-modulo.png",
+      "Nuestro equipo arma y difunde tus vacantes, atiende a los candidatos y te agenda entrevistas en tu restaurante. Tú entrevistas y decides.",
+    chips: ["Vacantes", "Candidatos", "Entrevistas"],
+    visualImage: "/talento/reclutamiento-hero.webp",
+    visualImageMobile: "/talento/reclutamiento-hero-m.webp",
     visualAlt:
-      "Reclutamiento, asistencia y nómina del equipo del restaurante desde el mismo sistema",
+      "Recorrido de una búsqueda de personal: vacante, candidatos, entrevista y decisión del restaurante",
     detail:
-      "Buscamos y filtramos meseros, cocineros y cajeros, dejamos los contratos en orden, y la asistencia se lleva desde el mismo sistema donde ya operas: quién llegó, quién llegó tarde, cuántas horas trabajó. Esa misma información alimenta la nómina, así que nadie recaptura nada.",
+      "Conseguir un mesero o un ayudante de cocina se come horas del gerente: publicar, contestar mensajes, explicar el sueldo diez veces y esperar a gente que no llega. Nosotros hacemos esa parte. Definimos la vacante contigo, preparamos la difusión, atendemos a los candidatos, revisamos que cumplan lo que acordamos y coordinamos las entrevistas. Tú solo entrevistas a quien ya sabe el sueldo, el horario y dónde queda el restaurante.",
+    problema:
+      "La rotación en piso y cocina es constante, y cada vacante abierta significa turnos cubiertos a medias. El gerente acaba reclutando entre comandas, y la mitad de los citados no conocía las condiciones o no llega.",
+    recorrido: [
+      { paso: "Definimos la vacante", texto: "Puesto, sueldo, propinas, horario, días y ubicación, contigo.", quien: "equipo" },
+      { paso: "Preparamos la difusión", texto: "Imágenes y textos de la vacante; los publicamos en los canales que acordemos.", quien: "equipo" },
+      { paso: "Recibimos candidatos", texto: "Solicitud en línea con datos, disponibilidad, experiencia y referencias.", quien: "sistema" },
+      { paso: "Revisamos requisitos", texto: "Confirmamos que conocen las condiciones y cumplen lo acordado. El examen por puesto es una herramienta de apoyo.", quien: "ambos" },
+      { paso: "Coordinamos entrevistas", texto: "Les mandamos ubicación, confirmamos asistencia y enviamos recordatorio.", quien: "equipo" },
+      { paso: "El restaurante decide", texto: "Tú entrevistas y eliges a quién contratar. Nadie decide por ti.", quien: "restaurante" },
+      { paso: "Damos seguimiento", texto: "Registramos quién asistió, quién te interesó y a quién contrataste.", quien: "equipo" },
+    ],
+    ejemplo: {
+      titulo: "Ejemplo: buscan un ayudante de cocina",
+      pasos: [
+        "Lunes: acordamos la vacante — turno de 15:00 a 23:30, un día de descanso entre semana, sueldo y propinas.",
+        "Martes: sale la difusión con la información completa; las solicitudes llegan con disponibilidad y experiencia.",
+        "Miércoles y jueves: hablamos con los candidatos, descartamos a quien no puede el horario y agendamos entrevistas.",
+        "Viernes: el chef entrevista a los candidatos confirmados y decide. Nosotros registramos el resultado.",
+      ],
+      nota: "Ejemplo ilustrativo con datos ficticios. Los tiempos dependen de la vacante y de la zona.",
+    },
     features: [
       {
-        title: "Reclutamiento de piso y cocina",
-        text: "Perfiles filtrados para restaurante, no una bolsa de trabajo genérica.",
+        title: "Vacantes bien definidas",
+        text: "Sueldo, propinas, horario y ubicación claros desde el primer mensaje.",
       },
       {
-        title: "Asistencia real",
-        text: "Entradas y salidas desde el POS: retardos y horas sin hoja de papel.",
+        title: "Difusión preparada por nuestro equipo",
+        text: "Imágenes y textos de la vacante. La inversión en anuncios va por separado.",
       },
       {
-        title: "Nómina sin recaptura",
-        text: "Las horas trabajadas ya están en el sistema. La nómina sale de ahí.",
+        title: "Solicitud en línea",
+        text: "Datos, disponibilidad, experiencia y referencias en un mismo formulario.",
       },
       {
-        title: "Contratos en orden",
-        text: "Documentación al día para cada persona del equipo.",
+        title: "Entrevistas coordinadas",
+        text: "Ubicación, confirmación y recordatorio para cada candidato citado.",
+      },
+    ],
+    restaurante: [
+      "Nos dices qué puesto necesitas y en qué condiciones.",
+      "Apartas horarios para entrevistar en tu restaurante.",
+      "Entrevistas, decides y nos avisas a quién contrataste.",
+    ],
+    planTexto:
+      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes).",
+    limites: [
+      "Hasta 2 búsquedas al mes de plazas operativas (mesero, cocinero, ayudante, cajero o similar), para una sucursal.",
+      "Cada búsqueda dura hasta 30 días.",
+      "Gerentes, perfiles especializados y sucursales adicionales se cotizan aparte.",
+      "La inversión en anuncios va por separado.",
+      "No garantizamos contrataciones ni que los candidatos asistan a la entrevista.",
+    ],
+    faq: [
+      {
+        q: "¿Ustedes contratan por mí?",
+        a: "No. Te presentamos candidatos que ya conocen las condiciones y coordinamos las entrevistas. La entrevista y la decisión son tuyas.",
+      },
+      {
+        q: "¿El sistema publica los anuncios solo?",
+        a: "No. La difusión la prepara y gestiona nuestro equipo. El sistema recibe las solicitudes y ordena la información de cada candidato.",
+      },
+      {
+        q: "¿Qué pasa con el examen por puesto?",
+        a: "Es una herramienta de apoyo que estamos poniendo a prueba con restaurantes piloto. Sirve para ordenar información; no reemplaza tu criterio en la entrevista.",
+      },
+      {
+        q: "¿Y si no llega nadie a la entrevista?",
+        a: "Seguimos dentro de la misma búsqueda de hasta 30 días: confirmamos asistencia y citamos a más candidatos.",
+      },
+    ],
+    galeria: [
+      {
+        src: "/talento/reclutamiento-captura.webp",
+        srcSm: "/talento/reclutamiento-captura-800.webp",
+        alt: "Solicitud de empleo en línea en tres pasos: datos y referencias, psicométrico y práctico",
+        caption: "La solicitud que llenan los candidatos: datos, disponibilidad, experiencia y referencias.",
+      },
+      {
+        src: "/talento/reclutamiento-detalle.webp",
+        srcSm: "/talento/reclutamiento-detalle-800.webp",
+        alt: "Detalle de la solicitud: sueldo deseado, días y turnos disponibles y tiempo de traslado",
+        caption: "Antes de citarlos ya sabes qué días pueden, en qué turno y cuánto tardan en llegar.",
       },
     ],
     benefits: [
-      "Menos rotación sorpresiva",
-      "Nómina sin errores",
-      "Días que no se van en papeleo",
+      "Menos horas del gerente reclutando",
+      "Candidatos que conocen las condiciones",
+      "Tú decides a quién contratar",
+    ],
+  },
+  {
+    id: "checklist-operativo",
+    slug: "checklist-operativo",
+    plan: "talento",
+    title: "Checklist operativo",
+    kicker: "Que la apertura y el cierre salgan igual todos los días",
+    description:
+      "Las tareas de apertura, servicio y cierre de cada puesto, con hora límite. El equipo las marca y tú ves qué se hizo, qué falta y qué se venció.",
+    chips: ["Apertura", "Servicio", "Cierre"],
+    visualImage: "/talento/checklist-hero.webp",
+    visualImageMobile: "/talento/checklist-hero-m.webp",
+    visualAlt:
+      "Checklist del día en el panel del restaurante: tareas de apertura, servicio y cierre con responsable y hora límite",
+    detail:
+      "Armamos contigo las listas de apertura, durante el servicio y cierre, y asignamos cada tarea a un puesto, los días que toca y con su hora límite. El equipo marca lo que hizo —con evidencia cuando la tarea la pide— y tú ves en el tablero de supervisión qué se cumplió, qué se marcó como no aplica y qué se venció sin hacerse.",
+    problema:
+      "Cuando el gerente no está, la apertura depende de la memoria de cada quien. Te enteras de que no se revisó la cámara o no se hizo el corte cuando ya es tarde.",
+    recorrido: [
+      { paso: "Armamos tus listas", texto: "Apertura, servicio y cierre, con las tareas reales de tu operación.", quien: "equipo" },
+      { paso: "Cada tarea tiene dueño", texto: "Por puesto, los días que toca y con hora límite.", quien: "sistema" },
+      { paso: "El equipo las marca", texto: "Desde el panel o la tableta; con evidencia si la tarea la pide.", quien: "restaurante" },
+      { paso: "Tú supervisas", texto: "Avance del día, tareas vencidas y quién ha hecho qué.", quien: "sistema" },
+    ],
+    ejemplo: {
+      titulo: "Ejemplo: domingo en un steakhouse",
+      pasos: [
+        "12:18 · El parrillero marca «Encender parrilla y revisar el fuego de los espetos».",
+        "15:41 · El barman marca los insumos de barra con una nota: «Falta jarabe natural; se pidió al proveedor».",
+        "19:35 · La gerente marca «Reponer la barra de ensaladas» como no aplica: se cerró por bajo aforo.",
+        "22:42 · El tablero muestra 2 tareas vencidas: la ronda de temperaturas de las 19:00 y el corte parcial de las 20:00.",
+      ],
+      nota: "Restaurante demo con datos ficticios. Así se veía el tablero ese día.",
+    },
+    features: [
+      {
+        title: "Listas por momento del día",
+        text: "Apertura, durante el servicio y cierre, cada una con sus tareas.",
+      },
+      {
+        title: "Responsable y hora límite",
+        text: "Cada tarea va a un puesto, solo los días que toca.",
+      },
+      {
+        title: "Notas y evidencia",
+        text: "El equipo deja una nota o, si la tarea lo pide, una foto.",
+      },
+      {
+        title: "Lo vencido salta a la vista",
+        text: "El tablero de supervisión separa lo hecho, lo pendiente y lo vencido, por puesto.",
+      },
+    ],
+    restaurante: [
+      "Nos dices qué se revisa en tu apertura, servicio y cierre.",
+      "Tu equipo marca sus tareas durante el turno.",
+      "El gerente revisa el tablero y atiende lo vencido.",
+    ],
+    planTexto:
+      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes). Si tu restaurante ya lo tiene activo, lo conservas.",
+    limites: [
+      "Las alertas de tareas vencidas se ven en el tablero de supervisión; todavía no llegan por WhatsApp.",
+      "La evidencia con foto aplica solo en las tareas que la piden.",
+    ],
+    faq: [
+      {
+        q: "¿Quién arma las listas?",
+        a: "Las armamos contigo durante la puesta en marcha, con las tareas reales de tu operación. Después las ajustamos cuando cambie tu operación.",
+      },
+      {
+        q: "¿Qué pasa si una tarea no aplica hoy?",
+        a: "Se marca como «no aplica» con una nota que explica por qué, y así se ve en el tablero.",
+      },
+      {
+        q: "¿Dónde marca el equipo sus tareas?",
+        a: "En el panel del restaurante o en la tableta de órdenes. Cada quien ve las tareas de su puesto.",
+      },
+    ],
+    galeria: [
+      {
+        src: "/talento/checklist-captura.webp",
+        srcSm: "/talento/checklist-captura-800.webp",
+        alt: "Supervisión del checklist: avance del día, alertas de tareas vencidas y avance por puesto",
+        caption: "Supervisión: avance del día, alertas de lo vencido y cómo va cada puesto.",
+      },
+      {
+        src: "/talento/checklist-detalle.webp",
+        srcSm: "/talento/checklist-detalle-800.webp",
+        alt: "Tareas del servicio con responsable, hora límite, una tarea vencida y otra marcada como no aplica",
+        caption: "Cada tarea dice quién la hizo, a qué hora vencía y por qué no aplicó.",
+      },
+    ],
+    benefits: [
+      "Aperturas y cierres parejos",
+      "Menos pendientes olvidados",
+      "Saber quién cumplió",
+    ],
+  },
+  {
+    id: "control-de-asistencia",
+    slug: "control-de-asistencia",
+    plan: "talento",
+    title: "Control de asistencia",
+    kicker: "Quién llegó, quién llegó tarde y quién está en turno",
+    description:
+      "El equipo registra su entrada y salida con PIN. Tú ves quién está en turno, los retardos y las horas trabajadas de la semana.",
+    chips: ["Entradas con PIN", "Retardos", "Horarios"],
+    visualImage: "/talento/asistencia-hero.webp",
+    visualImageMobile: "/talento/asistencia-hero-m.webp",
+    visualAlt:
+      "Panel de asistencia con el personal en turno, su hora de entrada y su estado: a tiempo o con retardo",
+    detail:
+      "Cada persona checa su entrada y salida con su PIN de 6 dígitos. Tú armas los horarios de la semana y defines la tolerancia. El sistema registra cada entrada y salida, calcula los retardos y las horas trabajadas, y te muestra en vivo quién está en turno. Las incidencias —una salida anticipada, una falta— quedan registradas y se pueden marcar como justificadas.",
+    problema:
+      "Con hoja de papel o de memoria, los retardos se discuten, las horas no cuadran y no sabes quién está en el restaurante hasta que preguntas.",
+    recorrido: [
+      { paso: "Armas los horarios", texto: "Semana por semana, por persona, con sus descansos.", quien: "restaurante" },
+      { paso: "El equipo checa con PIN", texto: "Entrada y salida en el checador del restaurante.", quien: "sistema" },
+      { paso: "Se calculan retardos y horas", texto: "Con la tolerancia que tú definiste.", quien: "sistema" },
+      { paso: "Revisas la semana", texto: "Quién está en turno, retardos, faltas e incidencias justificadas.", quien: "restaurante" },
+    ],
+    ejemplo: {
+      titulo: "Ejemplo: una semana con 12 personas",
+      pasos: [
+        "Tolerancia de 10 minutos: quien llega a las 15:17 a un turno de 15:00 queda con 7 minutos de retardo.",
+        "El sábado un ayudante no se presentó: el reporte lo marca como ausente.",
+        "El miércoles una cocinera salió antes a una cita médica: la incidencia se marcó como justificada.",
+        "Domingo 22:41 · un ayudante checa su entrada con PIN para el turno de cierre de las 23:00: queda a tiempo.",
+      ],
+      nota: "Restaurante demo con datos ficticios. Las pantallas son del sistema real.",
+    },
+    features: [
+      {
+        title: "Entrada y salida con PIN",
+        text: "Cada quien checa con el suyo en el checador del restaurante.",
+      },
+      {
+        title: "Horarios de la semana",
+        text: "Turnos y descansos por persona, en una sola vista.",
+      },
+      {
+        title: "¿Quién está ahora?",
+        text: "El personal en turno, desde qué hora y si llegó a tiempo.",
+      },
+      {
+        title: "Reporte e incidencias",
+        text: "Horas programadas contra trabajadas, retardos, faltas y justificaciones.",
+      },
+    ],
+    restaurante: [
+      "Defines horarios, descansos y tolerancia.",
+      "Le das a cada persona su PIN.",
+      "Revisas el reporte y justificas lo que corresponda.",
+    ],
+    planTexto:
+      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes). Si tu restaurante ya lo tiene activo, lo conservas.",
+    limites: [
+      "El checador funciona con PIN de 6 dígitos.",
+      "No calcula ni paga nómina: te da las horas para que tú o tu contador la hagan.",
+      "Los turnos se programan dentro del mismo día: no cruzan la medianoche.",
+    ],
+    faq: [
+      {
+        q: "¿Necesito un aparato especial?",
+        a: "No para empezar. El checador abre en una tableta o computadora del restaurante y cada persona usa su PIN.",
+      },
+      {
+        q: "¿Cómo se cuenta un retardo?",
+        a: "A partir de la tolerancia que defines. Con 10 minutos, llegar a las 15:17 a un turno de 15:00 cuenta como 7 minutos de retardo.",
+      },
+      {
+        q: "¿Se puede justificar una falta o una salida temprano?",
+        a: "Sí. La incidencia queda registrada y el gerente la marca como justificada con una nota.",
+      },
+    ],
+    galeria: [
+      {
+        src: "/talento/asistencia-captura.webp",
+        srcSm: "/talento/asistencia-captura-800.webp",
+        alt: "Reporte de asistencia de la semana con horas programadas, trabajadas, retardos y una falta",
+        caption: "El reporte de la semana: programado contra trabajado, retardos y la falta del sábado.",
+      },
+      {
+        src: "/talento/asistencia-detalle.webp",
+        srcSm: "/talento/asistencia-detalle-800.webp",
+        alt: "Checador con teclado numérico para registrar la entrada o salida con PIN",
+        caption: "El checador: cada persona registra su entrada y salida con su PIN.",
+      },
+    ],
+    benefits: [
+      "Retardos sin discusión",
+      "Horas trabajadas a la mano",
+      "Adiós a la hoja de papel",
     ],
   },
 ];
