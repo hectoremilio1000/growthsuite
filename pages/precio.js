@@ -4,6 +4,7 @@ import NavBar from "../components/foodbot/NavBar";
 import Seo from "../components/Seo";
 import { growthsuitePlans, planById } from "../data/growthsuitePlans";
 import { growthsuiteModules } from "../data/growthsuiteModules";
+import { TALENTO_ANUNCIOS } from "../data/talentoPrecios";
 
 /**
  * Precio — tres planes. El copy explica cómo funcionan los módulos ahora: se encienden por
@@ -13,6 +14,10 @@ import { growthsuiteModules } from "../data/growthsuiteModules";
  * Al elegir una tarjeta, la sección de abajo explica qué hacemos por ese precio. Sale del
  * mismo catálogo de módulos, así que no hay un segundo texto que se desincronice.
  */
+/* "a, b ni c": la lista de lo que NO incluye un plan. */
+const niLista = (xs) =>
+  xs.length > 1 ? `${xs.slice(0, -1).join(", ")} ni ${xs[xs.length - 1]}` : xs.join("");
+
 export default function Precio() {
   const [elegidoId, setElegidoId] = useState(
     growthsuitePlans.find((p) => p.highlight)?.id || growthsuitePlans[0].id
@@ -27,7 +32,7 @@ export default function Precio() {
     <div>
       <Seo
         title="Precio y planes de Growthsuite para restaurantes"
-        description="Tres planes: Básico $799 con los módulos de operación, Impulso $4,999 que suma web, reservaciones y marketing, e Impulso + Talento $6,999 que además te busca personal, lleva el checklist y la asistencia."
+        description="Básico $799 con los módulos de operación, Impulso $4,999 que suma web, reservaciones y marketing, e Impulso + Talento $6,999 que además te busca personal, lleva el checklist y la asistencia. Básico + Talento: $2,999 al mes."
         path="/precio"
       />
       <NavBar />
@@ -42,8 +47,9 @@ export default function Precio() {
             <p className="mt-4 text-lg text-slate-600">
               Growthsuite se enciende por módulos. El plan{" "}
               <strong>Básico</strong> trae los de operación; <strong>Impulso</strong>{" "}
-              incluye esos mismos y suma los de crecimiento. Cambias de plan cuando
-              lo necesites.
+              incluye esos mismos y suma los de crecimiento. <strong>Talento</strong>{" "}
+              agrega reclutamiento, checklist y asistencia, sobre Impulso o sobre
+              Básico. Cambias de plan cuando lo necesites.
             </p>
             <p className="mt-2 text-sm text-slate-500">
               Elige un plan para ver qué hacemos por ese precio.
@@ -96,6 +102,9 @@ export default function Precio() {
                       </span>
                     )}
                   </p>
+                  {plan.billing && (
+                    <p className="mt-1 text-sm text-slate-500">{plan.billing}</p>
+                  )}
 
                   {incluye && (
                     <p className="mt-5 text-sm font-semibold text-slate-700">
@@ -122,8 +131,14 @@ export default function Precio() {
                   {plan.fineprint && (
                     <p className="mt-1 text-xs text-slate-500">{plan.fineprint}</p>
                   )}
-                  {plan.addonLabel && (
-                    <p className="mt-3 text-sm font-semibold text-slate-700">{plan.addonLabel}</p>
+                  {plan.addon && (
+                    <p className="mt-3 text-sm text-slate-700">
+                      <strong>
+                        ¿Sólo {plan.addon.name}? {plan.addon.priceLabel} MXN / {plan.addon.period}.
+                      </strong>{" "}
+                      {plan.addon.billing}. Sin{" "}
+                      {niLista(plan.addon.sinImpulso.map((m) => m.title))}.
+                    </p>
                   )}
 
                   {plan.monthlyPriceLabel && (
@@ -192,6 +207,70 @@ export default function Precio() {
             )}
             {elegido.limites && (
               <p className="mt-8 text-sm text-slate-500">{elegido.limites}</p>
+            )}
+
+            {/* Los dos precios de Talento lado a lado: lo único que cambia es si trae Impulso. */}
+            {elegido.addon && (
+              <h3 className="heading-font mt-12 text-2xl">Dos formas de tener Talento</h3>
+            )}
+            {elegido.addon && (
+              <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                {[
+                  {
+                    name: elegido.name,
+                    priceLabel: elegido.priceLabel,
+                    period: elegido.period,
+                    billing: elegido.billing,
+                    incluye: [
+                      `Los ${elegido.addon.basico.length} módulos del Básico`,
+                      ...elegido.addon.sinImpulso.map((m) => m.title),
+                      ...elegido.addon.talento.map((m) => m.title),
+                    ],
+                    sin: [],
+                  },
+                  {
+                    name: elegido.addon.name,
+                    priceLabel: elegido.addon.priceLabel,
+                    period: elegido.addon.period,
+                    billing: elegido.addon.billing,
+                    incluye: [
+                      `Los ${elegido.addon.basico.length} módulos del Básico`,
+                      ...elegido.addon.talento.map((m) => m.title),
+                    ],
+                    sin: elegido.addon.sinImpulso.map((m) => m.title),
+                  },
+                ].map((op) => (
+                  <div
+                    key={op.name}
+                    className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                  >
+                    <h3 className="heading-font text-xl">{op.name}</h3>
+                    <p className="mt-2 text-2xl font-semibold text-primary">
+                      {op.priceLabel}
+                      <span className="ml-2 text-sm font-normal text-slate-500">
+                        MXN / {op.period}
+                      </span>
+                    </p>
+                    <p className="text-sm text-slate-500">{op.billing}</p>
+                    <ul className="mt-4 space-y-2">
+                      {op.incluye.map((t) => (
+                        <li key={t} className="flex items-start gap-2 text-slate-700">
+                          <span className="fb-check">✓</span>
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                    {op.sin.length > 0 && (
+                      <p className="mt-4 text-sm text-slate-600">
+                        No incluye {niLista(op.sin)}: esos vienen con Impulso.
+                      </p>
+                    )}
+                    <p className="mt-4 text-sm text-slate-500">
+                      {elegido.note} {TALENTO_ANUNCIOS}
+                    </p>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>
