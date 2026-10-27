@@ -1,4 +1,11 @@
 import { growthsuiteModules } from "./growthsuiteModules";
+import {
+  TALENTO_ANUNCIOS,
+  TALENTO_BUSQUEDAS,
+  TALENTO_COBRO,
+  TALENTO_CON_BASICO,
+  TALENTO_CON_IMPULSO,
+} from "./talentoPrecios";
 
 /**
  * Los planes que se cobran. Un módulo pertenece a UN plan; un plan agrupa módulos.
@@ -48,11 +55,12 @@ export const growthsuitePlans = [
   },
   {
     id: "talento",
-    name: "Impulso + Talento",
+    name: TALENTO_CON_IMPULSO.name,
     tagline: "Haz crecer tu restaurante y encuentra a tu próximo equipo",
     price: 6999,
-    priceLabel: "$6,999",
+    priceLabel: TALENTO_CON_IMPULSO.priceLabel,
     period: "mes",
+    billing: TALENTO_COBRO,
     includesPlanId: "impulso",
     features: asFeatures(modulesOf("talento")),
     // Qué incluye una búsqueda. El precio sólo es rentable con estos límites a la vista.
@@ -69,12 +77,20 @@ export const growthsuitePlans = [
         "Registrar quién asistió, quién interesa y quién fue contratado. El restaurante entrevista y toma la decisión final.",
       ],
     ],
-    limites:
-      "Cada búsqueda corresponde a una plaza operativa —mesero, cocinero, ayudante, cajero o similar— durante un periodo de hasta 30 días. Gerentes, puestos especializados y sucursales adicionales se cotizan aparte. No garantizamos contrataciones ni asistencia a las entrevistas.",
-    note: "Hasta 2 búsquedas de personal operativo al mes, para una sucursal.",
-    fineprint: "Este precio ya incluye el plan Impulso. Inversión en anuncios por separado.",
-    // Talento sin marketing, encima del Básico.
-    addonLabel: "¿Sólo Básico + Talento? $2,999 MXN / mes.",
+    limites: `Cada búsqueda corresponde a una plaza operativa —mesero, cocinero, ayudante, cajero o similar— durante un periodo de hasta 30 días. Gerentes, puestos especializados y sucursales adicionales se cotizan aparte. ${TALENTO_ANUNCIOS} No garantizamos contrataciones ni asistencia a las entrevistas.`,
+    note: TALENTO_BUSQUEDAS,
+    fineprint: `Este precio ya incluye el plan Impulso. ${TALENTO_ANUNCIOS}`,
+    // Talento sin marketing, encima del Básico. Mismas búsquedas y límites; lo que cambia es
+    // que no trae los módulos de Impulso. Las listas salen del catálogo, igual que las tarjetas.
+    addon: {
+      name: TALENTO_CON_BASICO.name,
+      priceLabel: TALENTO_CON_BASICO.priceLabel,
+      period: "mes",
+      billing: TALENTO_COBRO,
+      basico: modulesOf("basico"),
+      talento: modulesOf("talento"),
+      sinImpulso: modulesOf("impulso"),
+    },
     ctaLabel: "Quiero encontrar personal",
     ctaHref: "/contacto",
     highlight: false,
