@@ -1,3 +1,9 @@
+import {
+  TALENTO_ANUNCIOS,
+  TALENTO_BUSQUEDAS,
+  talentoPlanTexto,
+} from "./talentoPrecios";
+
 export const growthsuiteModules = [
   {
     id: "punto-de-venta",
@@ -485,7 +491,7 @@ export const growthsuiteModules = [
       },
       {
         title: "Difusión preparada por nuestro equipo",
-        text: "Imágenes y textos de la vacante. La inversión en anuncios va por separado.",
+        text: `Imágenes y textos de la vacante. ${TALENTO_ANUNCIOS}`,
       },
       {
         title: "Solicitud en línea",
@@ -501,13 +507,12 @@ export const growthsuiteModules = [
       "Apartas horarios para entrevistar en tu restaurante.",
       "Entrevistas, decides y nos avisas a quién contrataste.",
     ],
-    planTexto:
-      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes).",
+    planTexto: talentoPlanTexto,
     limites: [
-      "Hasta 2 búsquedas al mes de plazas operativas (mesero, cocinero, ayudante, cajero o similar), para una sucursal.",
+      TALENTO_BUSQUEDAS,
       "Cada búsqueda dura hasta 30 días.",
-      "Gerentes, perfiles especializados y sucursales adicionales se cotizan aparte.",
-      "La inversión en anuncios va por separado.",
+      "Gerentes, puestos especializados y sucursales adicionales se cotizan aparte.",
+      TALENTO_ANUNCIOS,
       "No garantizamos contrataciones ni que los candidatos asistan a la entrevista.",
     ],
     faq: [
@@ -533,13 +538,13 @@ export const growthsuiteModules = [
         src: "/talento/reclutamiento-captura.webp",
         srcSm: "/talento/reclutamiento-captura-800.webp",
         alt: "Solicitud de empleo en línea en tres pasos: datos y referencias, psicométrico y práctico",
-        caption: "La solicitud que llenan los candidatos: datos, disponibilidad, experiencia y referencias.",
+        caption: "Lo que llena el candidato: datos, disponibilidad, experiencia y referencias. Herramienta en piloto.",
       },
       {
-        src: "/talento/reclutamiento-detalle.webp",
-        srcSm: "/talento/reclutamiento-detalle-800.webp",
-        alt: "Detalle de la solicitud: sueldo deseado, días y turnos disponibles y tiempo de traslado",
-        caption: "Antes de citarlos ya sabes qué días pueden, en qué turno y cuánto tardan en llegar.",
+        src: "/talento/reclutamiento-panel.webp",
+        srcSm: "/talento/reclutamiento-panel-800.webp",
+        alt: "Panel del restaurante con la ficha de un candidato ficticio: etapa Recibido, datos de contacto, sueldo deseado, disponibilidad y permanencia en su último empleo",
+        caption: "Lo que recibe y revisa tu restaurante: la ficha de cada candidato, con su etapa, lo que pide y cuándo puede trabajar. Herramienta en piloto.",
       },
     ],
     benefits: [
@@ -604,8 +609,7 @@ export const growthsuiteModules = [
       "Tu equipo marca sus tareas durante el turno.",
       "El gerente revisa el tablero y atiende lo vencido.",
     ],
-    planTexto:
-      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes). Si tu restaurante ya lo tiene activo, lo conservas.",
+    planTexto: `${talentoPlanTexto} Si tu restaurante ya lo tiene activo, lo conservas.`,
     limites: [
       "Las alertas de tareas vencidas se ven en el tablero de supervisión; todavía no llegan por WhatsApp.",
       "La evidencia con foto aplica solo en las tareas que la piden.",
@@ -700,8 +704,7 @@ export const growthsuiteModules = [
       "Le das a cada persona su PIN.",
       "Revisas el reporte y justificas lo que corresponda.",
     ],
-    planTexto:
-      "Incluido en Impulso + Talento ($6,999 MXN al mes) y en Básico + Talento ($2,999 MXN al mes). Si tu restaurante ya lo tiene activo, lo conservas.",
+    planTexto: `${talentoPlanTexto} Si tu restaurante ya lo tiene activo, lo conservas.`,
     limites: [
       "El checador funciona con PIN de 6 dígitos.",
       "No calcula ni paga nómina: te da las horas para que tú o tu contador la hagan.",
