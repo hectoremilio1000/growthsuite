@@ -414,7 +414,7 @@ export const growthsuiteModules = [
     id: "marketing",
     slug: "marketing",
     plan: "impulso",
-    title: "Marketing",
+    title: "Marketing ads",
     kicker: "Que te conozcan los que están a la vuelta",
     description:
       "Campañas, redes y promociones pensadas para llenar tu restaurante — no para juntar likes. Con el número de ventas al lado, para saber si funcionó.",
