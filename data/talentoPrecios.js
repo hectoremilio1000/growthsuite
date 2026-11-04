@@ -14,4 +14,4 @@ export const TALENTO_BUSQUEDAS =
   "Hasta 2 búsquedas al mes de plazas operativas (mesero, cocinero, ayudante, cajero o similar), para una sucursal.";
 export const TALENTO_ANUNCIOS = "La inversión en anuncios va por separado.";
 
-export const talentoPlanTexto = `Incluido en ${TALENTO_CON_IMPULSO.name} (${TALENTO_CON_IMPULSO.priceLabel} MXN al mes) y en ${TALENTO_CON_BASICO.name} (${TALENTO_CON_BASICO.priceLabel} MXN al mes). Los dos se pagan mes a mes, sin plazo anual. ${TALENTO_CON_BASICO.name} no incluye Página web, Reservaciones ni Marketing.`;
+export const talentoPlanTexto = `Incluido en ${TALENTO_CON_IMPULSO.name} (${TALENTO_CON_IMPULSO.priceLabel} MXN al mes) y en ${TALENTO_CON_BASICO.name} (${TALENTO_CON_BASICO.priceLabel} MXN al mes). Los dos se pagan mes a mes, sin plazo anual. ${TALENTO_CON_BASICO.name} no incluye Página web, Reservaciones ni Marketing ads.`;
