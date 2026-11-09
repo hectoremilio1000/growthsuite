@@ -86,13 +86,6 @@ export default function AvisoReclutamiento() {
                     <span className="pp-info-value">Growthsuite</span>
                   </div>
                   <div className="pp-info-card">
-                    <span className="pp-info-label">Domicilio</span>
-                    <span className="pp-info-value">
-                      Av. Baja California 275, piso 5, Hipódromo, Cuauhtémoc,
-                      06100 Ciudad de México, CDMX
-                    </span>
-                  </div>
-                  <div className="pp-info-card">
                     <span className="pp-info-label">Correo de privacidad</span>
                     <a href={`mailto:${EMAIL}`} className="pp-info-value pp-link">
                       {EMAIL}
