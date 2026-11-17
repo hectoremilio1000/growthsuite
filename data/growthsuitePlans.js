@@ -49,6 +49,7 @@ export const growthsuitePlans = [
     includesPlanId: "basico",
     features: asFeatures(modulesOf("impulso")),
     note: "No se suma al básico: este precio ya lo incluye",
+    fineprint: "Contratación mínima de 3 meses",
     ctaLabel: "Agenda una demo",
     ctaHref: "/contacto",
     highlight: true,
