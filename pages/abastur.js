@@ -70,7 +70,6 @@ const features = [
 ];
 
 const logoCloud = [
-  { src: "/logos/bar-bunny.png", alt: "Bar Bunny" },
   { src: "/logos/lalloronblanco.png", alt: "La Llorona" },
   { src: "/logos/logoDonde.png", alt: "Dónde" },
   { src: "/logos/mayta-logo-new.svg", alt: "Mayta" },
