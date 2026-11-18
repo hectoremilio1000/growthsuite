@@ -12,13 +12,6 @@ const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
   {
-    src: "/logos/bar-bunny.png",
-    alt: "Bar Bunny",
-    variant: "dark",
-    size: "lg",
-    scale: 1.15,
-  },
-  {
     src: "/logos/lalloronblanco.png",
     alt: "La Llorona",
     variant: "dark",
