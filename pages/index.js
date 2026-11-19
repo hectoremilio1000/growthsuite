@@ -83,13 +83,6 @@ const logoCloud = [
     white: true,
   },
   {
-    src: "/logos/finca-robles.jpeg",
-    alt: "Finca Robles",
-    variant: "dark",
-    size: "lg",
-    scale: 1.1,
-  },
-  {
     src: "/logos/el-porton.png",
     alt: "El Portón",
     variant: "dark",
