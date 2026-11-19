@@ -12,6 +12,20 @@ const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
   {
+    src: "/logos/el-porton.png",
+    alt: "El Portón",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/mr-lucho.png",
+    alt: "Mr Lucho",
+    variant: "dark",
+    size: "lg",
+    scale: 1.15,
+  },
+  {
     src: "/logos/lalloronblanco.png",
     alt: "La Llorona",
     variant: "dark",
@@ -31,13 +45,6 @@ const logoCloud = [
     variant: "dark",
     size: "wide",
     scale: 1.1,
-  },
-  {
-    src: "/logos/mr-lucho.png",
-    alt: "Mr Lucho",
-    variant: "dark",
-    size: "lg",
-    scale: 1.15,
   },
   {
     src: "/logos/logo_bambuu.png",
@@ -83,10 +90,31 @@ const logoCloud = [
     white: true,
   },
   {
-    src: "/logos/finca-robles.jpeg",
-    alt: "Finca Robles",
+    src: "/logos/el-bajio.png",
+    alt: "El Bajío",
     variant: "dark",
     size: "lg",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/8-de-raiz.png",
+    alt: "8 de Raíz",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/naufragante.png",
+    alt: "Naufragante",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/lima-700.png",
+    alt: "Lima 700",
+    variant: "dark",
+    size: "wide",
     scale: 1.1,
   },
 ];

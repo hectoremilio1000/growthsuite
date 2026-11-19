@@ -70,13 +70,18 @@ const features = [
 ];
 
 const logoCloud = [
+  { src: "/logos/el-porton.png", alt: "El Portón" },
+  { src: "/logos/mr-lucho.png", alt: "Mr Lucho" },
   { src: "/logos/lalloronblanco.png", alt: "La Llorona" },
   { src: "/logos/logoDonde.png", alt: "Dónde" },
   { src: "/logos/mayta-logo-new.svg", alt: "Mayta" },
-  { src: "/logos/mr-lucho.png", alt: "Mr Lucho" },
   { src: "/logos/logo_bambuu.png", alt: "Bambuu" },
   { src: "/logos/fogo-de-chao.svg", alt: "Fogo de Chão" },
   { src: "/logos/rubaiyat.svg", alt: "Rubaiyat" },
+  { src: "/logos/el-bajio.png", alt: "El Bajío" },
+  { src: "/logos/8-de-raiz.png", alt: "8 de Raíz" },
+  { src: "/logos/naufragante.png", alt: "Naufragante" },
+  { src: "/logos/lima-700.png", alt: "Lima 700" },
 ];
 
 function getTimeLeft() {
