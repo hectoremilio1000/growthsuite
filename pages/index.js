@@ -110,6 +110,13 @@ const logoCloud = [
     size: "wide",
     scale: 1.1,
   },
+  {
+    src: "/logos/lima-700.png",
+    alt: "Lima 700",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
 ];
 
 export default function Home() {

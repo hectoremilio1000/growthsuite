@@ -81,6 +81,7 @@ const logoCloud = [
   { src: "/logos/el-bajio.png", alt: "El Bajío" },
   { src: "/logos/8-de-raiz.png", alt: "8 de Raíz" },
   { src: "/logos/naufragante.png", alt: "Naufragante" },
+  { src: "/logos/lima-700.png", alt: "Lima 700" },
 ];
 
 function getTimeLeft() {
