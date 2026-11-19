@@ -77,6 +77,8 @@ const logoCloud = [
   { src: "/logos/logo_bambuu.png", alt: "Bambuu" },
   { src: "/logos/fogo-de-chao.svg", alt: "Fogo de Chão" },
   { src: "/logos/rubaiyat.svg", alt: "Rubaiyat" },
+  { src: "/logos/el-porton.png", alt: "El Portón" },
+  { src: "/logos/el-bajio.png", alt: "El Bajío" },
 ];
 
 function getTimeLeft() {

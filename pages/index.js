@@ -89,6 +89,20 @@ const logoCloud = [
     size: "lg",
     scale: 1.1,
   },
+  {
+    src: "/logos/el-porton.png",
+    alt: "El Portón",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/el-bajio.png",
+    alt: "El Bajío",
+    variant: "dark",
+    size: "lg",
+    scale: 1.1,
+  },
 ];
 
 export default function Home() {
