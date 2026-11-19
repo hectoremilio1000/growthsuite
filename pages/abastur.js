@@ -79,6 +79,8 @@ const logoCloud = [
   { src: "/logos/rubaiyat.svg", alt: "Rubaiyat" },
   { src: "/logos/el-porton.png", alt: "El Portón" },
   { src: "/logos/el-bajio.png", alt: "El Bajío" },
+  { src: "/logos/8-de-raiz.png", alt: "8 de Raíz" },
+  { src: "/logos/naufragante.png", alt: "Naufragante" },
 ];
 
 function getTimeLeft() {

@@ -96,6 +96,20 @@ const logoCloud = [
     size: "lg",
     scale: 1.1,
   },
+  {
+    src: "/logos/8-de-raiz.png",
+    alt: "8 de Raíz",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/naufragante.png",
+    alt: "Naufragante",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
 ];
 
 export default function Home() {
