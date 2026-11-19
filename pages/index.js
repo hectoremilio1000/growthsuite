@@ -12,6 +12,20 @@ const DEMO_POSTER_SRC = "/brand/demo-cover.jpg";
 
 const logoCloud = [
   {
+    src: "/logos/el-porton.png",
+    alt: "El Portón",
+    variant: "dark",
+    size: "wide",
+    scale: 1.1,
+  },
+  {
+    src: "/logos/mr-lucho.png",
+    alt: "Mr Lucho",
+    variant: "dark",
+    size: "lg",
+    scale: 1.15,
+  },
+  {
     src: "/logos/lalloronblanco.png",
     alt: "La Llorona",
     variant: "dark",
@@ -31,13 +45,6 @@ const logoCloud = [
     variant: "dark",
     size: "wide",
     scale: 1.1,
-  },
-  {
-    src: "/logos/mr-lucho.png",
-    alt: "Mr Lucho",
-    variant: "dark",
-    size: "lg",
-    scale: 1.15,
   },
   {
     src: "/logos/logo_bambuu.png",
@@ -81,13 +88,6 @@ const logoCloud = [
     size: "lg",
     scale: 1.1,
     white: true,
-  },
-  {
-    src: "/logos/el-porton.png",
-    alt: "El Portón",
-    variant: "dark",
-    size: "wide",
-    scale: 1.1,
   },
   {
     src: "/logos/el-bajio.png",
