@@ -14,10 +14,11 @@ const sections = [
   { id: "arco", num: "09", title: "Derechos ARCO" },
   { id: "revocacion", num: "10", title: "Revocacion del consentimiento" },
   { id: "terceros", num: "11", title: "Datos de terceros" },
-  { id: "menores", num: "12", title: "Menores de edad" },
-  { id: "enlaces", num: "13", title: "Enlaces a terceros" },
-  { id: "cambios", num: "14", title: "Cambios al Aviso" },
-  { id: "contacto", num: "15", title: "Contacto" },
+  { id: "meta", num: "12", title: "WhatsApp, Facebook e Instagram" },
+  { id: "menores", num: "13", title: "Menores de edad" },
+  { id: "enlaces", num: "14", title: "Enlaces a terceros" },
+  { id: "cambios", num: "15", title: "Cambios al Aviso" },
+  { id: "contacto", num: "16", title: "Contacto" },
 ];
 
 export default function PrivacyPolicy() {
@@ -43,7 +44,7 @@ export default function PrivacyPolicy() {
               datos personales.
             </p>
             <div className="pp-hero-meta">
-              <span>Ultima actualizacion: 20 de febrero de 2026</span>
+              <span>Ultima actualizacion: 20 de noviembre de 2026</span>
               <span className="pp-hero-dot" aria-hidden="true" />
               <span>Conforme a la LFPDPPP</span>
             </div>
@@ -585,9 +586,101 @@ export default function PrivacyPolicy() {
               </article>
 
               {/* 12 */}
-              <article id="menores" className="pp-article">
+              <article id="meta" className="pp-article">
                 <div className="pp-article-header">
                   <span className="pp-num">12</span>
+                  <h2>Datos de WhatsApp, Facebook e Instagram (plataformas de Meta)</h2>
+                </div>
+                <p>
+                  Cuando un restaurante conecta sus cuentas de Meta a
+                  Growthsuite (WhatsApp Business, Facebook, Instagram o su
+                  cuenta publicitaria), lo hace por medio del inicio de sesion
+                  oficial de Meta y autoriza expresamente los permisos que se le
+                  muestran. Growthsuite actua como proveedor de tecnologia del
+                  restaurante: el restaurante es responsable de los datos de sus
+                  propios clientes y Growthsuite los trata solo por su cuenta y
+                  para prestarle el servicio.
+                </p>
+                <div className="pp-data-section">
+                  <h3>Que datos recibimos de Meta</h3>
+                  <ul>
+                    <li>
+                      Identificadores de la cuenta de WhatsApp Business, del
+                      numero de telefono y del negocio, y el nombre del negocio
+                    </li>
+                    <li>
+                      Mensajes de WhatsApp que los clientes del restaurante le
+                      envian y las respuestas del restaurante (texto, fecha y
+                      numero de telefono del cliente), solo si el restaurante
+                      activa la opcion de guardar mensajes
+                    </li>
+                    <li>
+                      Datos de las conversaciones sin el texto (cuantas hubo,
+                      tiempo de respuesta, tema general) para medir la atencion
+                    </li>
+                    <li>
+                      Metricas de las campanas de anuncios (inversion,
+                      alcance, clics y conversaciones iniciadas)
+                    </li>
+                    <li>
+                      Tokens de acceso que Meta entrega para operar en nombre
+                      del restaurante, guardados cifrados
+                    </li>
+                  </ul>
+                </div>
+                <div className="pp-data-section">
+                  <h3>Para que los usamos</h3>
+                  <ul>
+                    <li>
+                      Mostrar al restaurante sus conversaciones en una bandeja
+                      y permitirle contestarlas desde Growthsuite
+                    </li>
+                    <li>
+                      Ligar una conversacion con la reserva y la venta que
+                      genero, y entregar al restaurante reportes de resultados
+                      de sus campanas
+                    </li>
+                  </ul>
+                  <p>
+                    No vendemos estos datos, no los usamos para publicidad
+                    propia ni para perfilar personas, y no los compartimos con
+                    nadie distinto del restaurante que los conecto, salvo los
+                    proveedores que alojan la plataforma y Meta misma.
+                  </p>
+                </div>
+                <div className="pp-data-section">
+                  <h3>Cuanto tiempo los guardamos</h3>
+                  <ul>
+                    <li>
+                      Los mensajes guardados se borran automaticamente a los 18
+                      meses
+                    </li>
+                    <li>
+                      Al desconectar la cuenta dejamos de recibir datos de
+                      inmediato; los tokens y lo ya recibido se borran cuando el
+                      restaurante lo solicita
+                    </li>
+                    <li>
+                      Las metricas agregadas de campanas se conservan mientras
+                      el restaurante sea cliente
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  Para desconectar una cuenta o pedir que borremos estos datos,
+                  sigue las{" "}
+                  <Link href="/eliminacion-de-datos" className="pp-link">
+                    instrucciones de eliminacion de datos
+                  </Link>
+                  . El uso de la informacion recibida de las APIs de Meta se
+                  apega a las Condiciones de la Plataforma de Meta.
+                </p>
+              </article>
+
+              {/* 13 */}
+              <article id="menores" className="pp-article">
+                <div className="pp-article-header">
+                  <span className="pp-num">13</span>
                   <h2>Menores de edad</h2>
                 </div>
                 <p>
@@ -597,10 +690,10 @@ export default function PrivacyPolicy() {
                 </p>
               </article>
 
-              {/* 13 */}
+              {/* 14 */}
               <article id="enlaces" className="pp-article">
                 <div className="pp-article-header">
-                  <span className="pp-num">13</span>
+                  <span className="pp-num">14</span>
                   <h2>Enlaces a sitios de terceros</h2>
                 </div>
                 <p>
@@ -610,10 +703,10 @@ export default function PrivacyPolicy() {
                 </p>
               </article>
 
-              {/* 14 */}
+              {/* 15 */}
               <article id="cambios" className="pp-article">
                 <div className="pp-article-header">
-                  <span className="pp-num">14</span>
+                  <span className="pp-num">15</span>
                   <h2>Cambios al Aviso</h2>
                 </div>
                 <p>
@@ -624,10 +717,10 @@ export default function PrivacyPolicy() {
                 </p>
               </article>
 
-              {/* 15 */}
+              {/* 16 */}
               <article id="contacto" className="pp-article">
                 <div className="pp-article-header">
-                  <span className="pp-num">15</span>
+                  <span className="pp-num">16</span>
                   <h2>Contacto</h2>
                 </div>
                 <p>
