@@ -33,6 +33,12 @@ const APP_LINKS = [
     url: process.env.NEXT_PUBLIC_APP_CENTRO_URL || "https://pos-centro-front.vercel.app/",
   },
   {
+    // Postulación pública y exámenes de candidatos (API y base de RRHH).
+    label: "Talento",
+    icon: "/brand/apps/pos-talento.svg",
+    url: process.env.NEXT_PUBLIC_APP_TALENTO_URL || "https://talento.growthsuite.com.mx/",
+  },
+  {
     label: "Repartidor",
     icon: "/brand/apps/pos-courier.png",
     url: process.env.NEXT_PUBLIC_APP_COURIER_URL || "https://poscourierfront.vercel.app/",
