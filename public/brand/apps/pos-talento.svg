@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#2278e8"/>
+    <stop offset="60%" stop-color="#1558b0"/>
+    <stop offset="100%" stop-color="#0a2d6e"/>
+  </radialGradient>
+</defs>
+<rect width="512" height="512" rx="102" fill="url(#bg)"/>
+<circle cx="256" cy="256" r="230" fill="none" stroke="#4a9eff" stroke-width="14" stroke-linecap="round" stroke-dasharray="1090 354" stroke-dashoffset="-29" opacity="0.5"/>
+<circle cx="256" cy="256" r="230" fill="none" stroke="#f0a500" stroke-width="18" stroke-linecap="round" stroke-dasharray="115 1309" stroke-dashoffset="51"/>
+<!-- Solicitud -->
+<rect x="128" y="96" width="232" height="316" rx="26" fill="white" opacity="0.93"/>
+<rect x="196" y="76" width="96" height="44" rx="14" fill="#f0a500"/>
+<!-- Candidato -->
+<circle cx="244" cy="192" r="42" fill="#1558b0"/>
+<path d="M170 300 C170 254 204 232 244 232 C284 232 318 254 318 300 Z" fill="#1558b0"/>
+<!-- Renglones -->
+<rect x="168" y="328" width="152" height="16" rx="8" fill="#9cc3f5"/>
+<rect x="168" y="360" width="104" height="16" rx="8" fill="#9cc3f5"/>
+<!-- Palomita -->
+<circle cx="378" cy="384" r="78" fill="#0a2d6e"/>
+<circle cx="378" cy="384" r="60" fill="#f0a500"/>
+<path d="M348 386 L370 408 L410 362" fill="none" stroke="#0a2d6e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
